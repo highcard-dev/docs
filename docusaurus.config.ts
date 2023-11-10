@@ -38,7 +38,7 @@ const config: Config = {
           sidebarPath: "./sidebars.ts",
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: "https://github.com/druid/docs/edit/master",
+          editUrl: "https://github.com/highcard-dev/docs/edit/master",
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -49,7 +49,7 @@ const config: Config = {
 
   themeConfig: {
     // Replace with your project's social card
-    image: "img/docusaurus-social-card.jpg",
+    image: "img/logo.svg",
     navbar: {
       title: "Druid Docs",
       logo: {
