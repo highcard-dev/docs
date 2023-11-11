@@ -4,7 +4,7 @@ import type * as Preset from "@docusaurus/preset-classic";
 
 const config: Config = {
   title: "Druid Docs",
-  tagline: "Druid go brrrr",
+  tagline: "Druid Documentation, Guides, and general knowledge base.",
   favicon: "img/favicon.ico",
 
   // Set the production url of your site here
@@ -57,12 +57,12 @@ const config: Config = {
         src: "img/logo.svg",
       },
       items: [
-        {
-          type: "docSidebar",
-          sidebarId: "tutorialSidebar",
-          position: "left",
-          label: "Docs",
-        },
+        //        {
+        //          type: "docSidebar",
+        //          sidebarId: "tutorialSidebar",
+        //          position: "left",
+        //          label: "Docs",
+        //        },
         {
           type: "localeDropdown",
           position: "right",
@@ -78,11 +78,15 @@ const config: Config = {
       style: "dark",
       links: [
         {
-          title: "Docs",
+          title: "Links",
           items: [
             {
-              label: "Docs",
-              to: "/docs/intro",
+              label: "Druid App",
+              to: "https://app.druid.gg",
+            },
+            {
+              label: "Druid Website",
+              to: "https://druid.gg",
             },
           ],
         },
@@ -90,16 +94,16 @@ const config: Config = {
           title: "Community",
           items: [
             {
-              label: "Stack Overflow",
-              href: "https://stackoverflow.com/questions/tagged/docusaurus",
-            },
-            {
               label: "Discord",
-              href: "https://discordapp.com/invite/docusaurus",
+              href: "https://discord.gg/druid",
             },
             {
               label: "Twitter",
-              href: "https://twitter.com/docusaurus",
+              href: "https://twitter.com/druid_gg",
+            },
+            {
+              label: "Reddit",
+              href: "https://www.reddit.com/r/druid_gg/",
             },
           ],
         },
@@ -107,12 +111,8 @@ const config: Config = {
           title: "More",
           items: [
             {
-              label: "Blog",
-              to: "/blog",
-            },
-            {
               label: "GitHub",
-              href: "https://github.com/facebook/docusaurus",
+              href: "https://github.com/highcard-dev/docs",
             },
           ],
         },
