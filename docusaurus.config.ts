@@ -48,6 +48,11 @@ const config: Config = {
   ],
 
   themeConfig: {
+    colorMode: {
+      defaultMode: "dark",
+      disableSwitch: true,
+      respectPrefersColorScheme: false,
+    },
     // Replace with your project's social card
     image: "img/logo.svg",
     navbar: {
@@ -118,6 +123,7 @@ const config: Config = {
         },
       ],
       copyright: `Copyright © ${new Date().getFullYear()} Highcard.`,
+      logo: { src: "img/logo.svg", height: 30, width: 30 },
     },
     prism: {
       theme: prismThemes.github,
