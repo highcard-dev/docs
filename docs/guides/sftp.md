@@ -2,7 +2,7 @@
 sidebar_position: 1
 ---
 
-# Manage Docs Versions
+# Access your Serverfiles with SFTP
 
 Docusaurus can manage multiple versions of your docs.
 
@@ -34,7 +34,7 @@ export default {
       items: [
         // highlight-start
         {
-          type: 'docsVersionDropdown',
+          type: "docsVersionDropdown",
         },
         // highlight-end
       ],
