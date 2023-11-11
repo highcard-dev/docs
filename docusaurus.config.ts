@@ -68,8 +68,8 @@ const config: Config = {
           position: "right",
         },
         {
-          href: "https://github.com/highcard-dev/docs",
-          label: "GitHub",
+          href: "https://app.druid.gg/",
+          label: "Go to App",
           position: "right",
         },
       ],
