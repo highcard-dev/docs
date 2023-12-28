@@ -5,8 +5,17 @@ import Layout from "@theme/Layout";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
 import Heading from "@theme/Heading";
 
-import { Redirect } from "@docusaurus/router";
-
 export default function Home(): JSX.Element {
-  return <Redirect to="/docs/intro" />;
+  return (
+    <Layout title="Druid Docs">
+      <section className="margin-bottom--xl">
+        <div className="container">
+          <Heading className="text--center margin-vert--lg" as="h1">
+            Druid Documentation
+          </Heading>
+        </div>
+      </section>
+      <HomepageFeatures />
+    </Layout>
+  );
 }
