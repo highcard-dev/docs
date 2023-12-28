@@ -1,8 +1,8 @@
 {
-  "label": "General Information",
+  "label": "",
   "position": 2,
   "link": {
     "type": "generated-index",
-    "description": "General Information"
+    "description": "Allgemeines"
   }
 }
