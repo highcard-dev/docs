@@ -13,6 +13,6 @@ If you want to participate, please feel very welcome to contribute.
 This Documentation aims to help you understand and navigate the Druid Platform with all it's different features and components.
 It is routhly divided into
 
-- [General](/docs/general/help-contribute)
-- [Druid Guides](/guides)
-- [Gameserver Guides](/guides/gameserver)
+- [General](/docs/contribute-docs/intro)
+- [Druid Guides](/docs/category/guides)
+- [Gameserver Guides](/docs/category/gameservers)
