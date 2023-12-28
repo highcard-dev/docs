@@ -1,21 +1,18 @@
 ---
-sidebar_position: 6
+sidebar_position: 1
 ---
 
 # Druid Beta
 
-You have just learned the **basics of Docusaurus** and made some changes to the **initial template**.
+Druid befindet sich derzeit in einer geschlossenen Beta-Phase.
+Alle Gameserver sind vorerst kostenlos. Das Ziel der geschlossenen Alpha-Phase ist es, die Technologie, die wir entwickelt haben, zu validieren und zu verbessern.
+Um an der Beta teilzunehmen, musst du dich nur in der Druid App [anmelden] (https://app.druid.gg/signup).
+Du erhältst eine E-Mail, wenn dein Account freigeschaltet wird.
 
-Docusaurus has **much more to offer**!
+## Updates auf Discord erhalten
 
-Anything **unclear** or **buggy** in this tutorial? [Please report it!](https://github.com/facebook/docusaurus/discussions/4610)
+TODO
 
-## What's next?
+## Mana Drops
 
-- Read the [official documentation](https://docusaurus.io/)
-- Modify your site configuration with [`docusaurus.config.js`](https://docusaurus.io/docs/api/docusaurus-config)
-- Add navbar and footer items with [`themeConfig`](https://docusaurus.io/docs/api/themes/configuration)
-- Add a custom [Design and Layout](https://docusaurus.io/docs/styling-layout)
-- Add a [search bar](https://docusaurus.io/docs/search)
-- Find inspirations in the [Docusaurus showcase](https://docusaurus.io/showcase)
-- Get involved in the [Docusaurus Community](https://docusaurus.io/community/support)
+TODO
