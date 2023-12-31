@@ -11,7 +11,7 @@ If you want to participate, please feel very welcome to contribute.
 ## Content
 
 This Documentation aims to help you understand and navigate the Druid Platform with all it's different features and components.
-It is routhly divided into
+It is routhly divided intoasd
 
 - [General](/docs/contribute-docs/intro)
 - [Druid Guides](/docs/category/guides)
