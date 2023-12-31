@@ -16,3 +16,5 @@ It is routhly divided into
 - [General](/docs/contribute-docs/intro)
 - [Druid Guides](/docs/category/guides)
 - [Gameserver Guides](/docs/category/gameservers)
+
+Have a great day
