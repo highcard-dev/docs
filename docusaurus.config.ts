@@ -54,7 +54,6 @@ const config: Config = {
       contextualSearch: true,
       searchParameters: {},
       searchPagePath: "search",
-      debug: true,
     },
     colorMode: {
       defaultMode: "dark",
