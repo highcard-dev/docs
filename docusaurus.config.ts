@@ -46,8 +46,16 @@ const config: Config = {
       } satisfies Preset.Options,
     ],
   ],
-
   themeConfig: {
+    algolia: {
+      appId: "53KOE77GEW",
+      apiKey: "4884daa83b774390a20e74f04b661ff5",
+      indexName: "druid",
+      contextualSearch: true,
+      searchParameters: {},
+      searchPagePath: "search",
+      debug: true,
+    },
     colorMode: {
       defaultMode: "dark",
       disableSwitch: true,
