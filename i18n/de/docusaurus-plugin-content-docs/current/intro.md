@@ -4,15 +4,15 @@ sidebar_position: 1
 
 # Willkommen
 
-Willkommen bei der _Druid-Dokumentation_.
-Wir sind noch dabei, unsere Docs aufzubauen.
-Wenn Sie sich daran beteiligen wollen, sind Sie herzlich eingeladen, etwas beizutragen.
+Willkommen zur **Druid Dokumentation**.
+Wir arbeiten noch an der Dokumentation.
+Wenn du mitmachen möchtest, bist du herzlich eingeladen.
 
 ## Inhalt
 
-Diese Dokumentation soll Ihnen helfen, die Druid-Plattform mit all ihren verschiedenen Funktionen und Komponenten zu verstehen und zu navigieren.
-Sie ist grob unterteilt in
+Diese Dokumentation soll dir helfen, die Druid-Plattform und ihre verschiedenen Funktionen und Komponenten zu verstehen und zu navigieren.
+Sie ist grob unterteilt in:
 
-- [General](/docs/contribute/intro)
-- [Druid Guides](/docs/category/guides)
-- [Gameserver Guides](/docs/category/gameservers)
+- [Allgemeines](/docs/contribute/intro)
+- [Druid-Ratgeber](/docs/category/ratgeber)
+- [Gameserver-Anleitungen](/docs/category/gameserver)

@@ -4,14 +4,14 @@ sidebar_position: 1
 
 # Welcome
 
-Welcome to the _Druid Documentation_.
-We are still in the process of builing up our Docs.
-If you want to participate, please feel very welcome to contribute.
+Welcome to the **Druid Documentation**.
+We are still in the process of building our docs.
+If you would like to participate, please feel free to contribute.
 
-## Content
+## Contents
 
-This Documentation aims to help you understand and navigate the Druid Platform with all it's different features and components.
-It is routhly divided into
+This documentation is intended to help you understand and navigate the Druid platform and it's various features and components.
+It is roughly divided into
 
 - [General](/docs/contribute/intro)
 - [Druid Guides](/docs/category/guides)
