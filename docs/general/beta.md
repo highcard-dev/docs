@@ -17,7 +17,7 @@ If you would like to participate in any way, you are very welcome. You can repor
 
 We also post updates, pools and news there. So keep up to date!
 
-[![Discord beitreten](img/discord.png)](https://discord.com/invite/UUXpmx24ua)
+[![Join Discord](img/discord.png)](https://discord.com/invite/UUXpmx24ua)
 [Join Discord](https://discord.com/invite/UUXpmx24ua)
 
 ## Mana Drops
