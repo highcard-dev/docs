@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Zur Dokumentation beitragen.
+# Zur Dokumentation beitragen
 
 Wenn du zur Dokumentation beitragen möchtest, musst du mit [unserem Git-Repository](https://github.com/highcard-dev/docs) interagieren.
 Du musst nicht mit Git vertraut sein, um dies zu tun, obwohl es empfohlen wird.

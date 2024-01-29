@@ -13,6 +13,7 @@ We also strongly encourage community support and are very grateful for everyone 
 If you would like to leave general feedback or report a problem, please consider joining our Discord server.
 It will also keep you up to date with news, events and changes to Druid.
 
+[![Discord beitreten](img/discord.png)](https://discord.com/invite/UUXpmx24ua)
 [Join Discord](https://discord.com/invite/UUXpmx24ua)
 
 ## Improve the documentation.
