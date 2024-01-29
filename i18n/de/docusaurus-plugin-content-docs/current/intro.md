@@ -14,5 +14,5 @@ Diese Dokumentation soll dir helfen, die Druid-Plattform und ihre verschiedenen 
 Sie ist grob unterteilt in:
 
 - [Allgemeines](/docs/contribute/intro)
-- [Druid-Ratgeber](/docs/category/guids)
+- [Druid-Ratgeber](/docs/category/guides)
 - [Gameserver-Anleitungen](/docs/category/gameservers)
