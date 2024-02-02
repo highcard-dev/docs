@@ -12,7 +12,7 @@ Wenn du dich bereits mit Git auskennst, ist die folgende Anleitung wahrscheinlic
 
 Sieh dir auch [Hilfreiche Links zum Bearbeiten der Dokumentation](#hilfreiche-links-zum-bearbeiten-der-dokumentation) an, um mehr über die Werkzeuge zu erfahren, die wir zum Erstellen unserer Dokumentation verwenden.  
 
-Es ist auch sehr hilfreich, wenn du deine technischen Kenntnisse verbessern möchtest, da Tools wie Git, Github, Markdown usw. häufig verwendet werden.
+Es ist auch sehr hilfreich, wenn du deine technischen Kenntnisse verbessern möchtest, da Tools wie Git, GitHub, Markdown usw. häufig verwendet werden.
 
 ## Eine bestehende Seite bearbeiten
 ---
@@ -23,9 +23,9 @@ Wähle die Seite aus, die du bearbeiten möchtest, und klicke auf den Link zum B
 
 ![drücke Bearbeiten](img/1-start.png)
 
-### 2. Bei Github anmelden
+### 2. Bei GitHub anmelden
 
-Melde dich bei deinem Github Konto an oder [erstelle ein neues Konto auf github.com](https://github.com/signup), falls du noch keines hast.
+Melde dich bei deinem GitHub Konto an oder [erstelle ein neues Konto auf github.com](https://github.com/signup), falls du noch keines hast.
 
 ![Bei Github anmelden](img/2-login.png)
 
@@ -82,7 +82,9 @@ Erstelle zunächst einen Fork des Dokumentations Repositories.
 
 ### 2. Datei hinzufügen
 
-Jetzt kannst du das gesamte Repository sehen und in der Ordnerstruktur navigieren. Navigiere einfach zum Ordner `/docs/`, und du solltest einige `md` Dateien sowie andere Ordner vorfinden. Diese repräsentieren die Struktur, die du in den Dokumentationen sehen kannst. Gehe einfach zum entsprechenden Ordner und wähle `Add file`.
+Jetzt kannst du das gesamte Repository sehen und in der Ordnerstruktur navigieren.  
+
+Navigiere einfach zum Ordner `/docs/`, und du solltest einige `md` Dateien sowie andere Ordner vorfinden. Diese repräsentieren die Struktur, die du in den Dokumentationen sehen kannst. Gehe einfach zum entsprechenden Ordner und wähle `Add file`.
 
 In diesem Ordner kannst du nur Beiträge zur englischen Dokumentation leisten!
 
@@ -96,7 +98,7 @@ Alternativ kannst du auch eine Markdown Datei hochladen, achte aber darauf, dass
 
 ![Beitrag einreichen](img/add/4-submit-file.png)
 
-### 3. Übertrage die Änderungen für die Pull Request.
+### 3. Änderungen einreichen
 
 Wenn du fertig bist, klicke auf Commit.
 
@@ -109,12 +111,13 @@ Wenn du fertig bist, klicke auf Commit.
 Folge ab hier einfach [Schritt 6 der Anleitung zum Bearbeiten einer Seite](#6-pull-request-erstellen).
 
 ## Hilfreiche Links zum Bearbeiten der Dokumentation
+---
 
-### Github & Git
+### GitHub & Git
 
 - [Git Dokumentation & Videos](https://git-scm.com/doc)
 
-- [Anmeldung für Github](https://github.com/signup)
+- [Anmeldung für GitHub](https://github.com/signup)
 
 - [Wie man zu einem Open Source Projekt auf GitHub beiträgt](https://egghead.io/courses/how-to-contribute-to-an-open-source-project-on-github)
 
