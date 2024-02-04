@@ -8,7 +8,7 @@ sidebar_position: 2
 
 ## Mana Drops in the Beta
 
-- Weekly Drops:** Receive up to 1000 mana every 7 days.
+- **Weekly Drops:** Receive up to 1000 mana every 7 days.
 - **Automatic notification:** An e-mail informs you about new drops.
 - **Maximize your mana:** Redeem all drops quickly to avoid missing out on mana.
 
