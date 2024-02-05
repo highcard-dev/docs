@@ -7,6 +7,7 @@ sidebar_position: 2
 ---
 
 ## Mana Drops in der Beta
+---
 
 - **Wöchentliche Drops:** Erhalte alle 7 Tage bis zu 1000 Mana.
 - **Automatische Benachrichtigung:** Eine E-Mail informiert dich über neue Drops.
@@ -16,6 +17,7 @@ sidebar_position: 2
 [![Discord beitreten](img/mana.png)](https://discord.com/invite/UUXpmx24ua)
 
 ## Mana Drops: So funktioniert's
+---
 
 - **Weniger als 1000 Mana nach 7 Tagen?** Du erhältst genug Mana, um auf 1000 zu kommen.
 - **1000 Mana und 7 Tage vergangen?** Kein neues Mana, bis du welches ausgibst.
@@ -37,7 +39,6 @@ Sollte dir mal etwas Mana fehlen, kannst du mit einem Meisterwerk dir ein wenig 
 
 Wir freuen uns auf deine kreativen Beiträge!
 
-## Ich wie ich Mana esse!
----
+### Ich wie ich Mana esse!
 
 [![Join Discord](img/eating.png)](https://discord.com/invite/UUXpmx24ua)

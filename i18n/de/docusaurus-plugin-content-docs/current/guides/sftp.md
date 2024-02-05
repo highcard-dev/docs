@@ -8,6 +8,7 @@ sidebar_position: 1
 Druid bietet mehrere Möglichkeiten, um alle Dateien deines Servers hochzuladen und zu bearbeiten. Du kannst das sehr bekannte **FTP** oder das modernere HTTP-basierte **WebDAV**-Protokoll verwenden.
 
 ## SFTP verwenden
+---
 
 FTP ist wahrscheinlich die bekannteste Methode, um mit entfernten Dateien zu interagieren. Wir verwenden die sichere FTP- oder SFTP-Variante, die SSH nutzt, um Dateien verschlüsselt zwischen Server und Client zu übertragen. Sie wird von allen wichtigen FTP-Clients unterstützt.
 
@@ -72,6 +73,7 @@ Normalerweise solltest du alle deine Dateien im **deployment**-Ordner finden.
 Du kannst auch eine [sehr umfassende Liste auf Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_FTP_client_software#Operating_system_support) finden
 
 ## WebDAV verwenden
+---
 
 Die Verwendung von WebDAV ist ähnlich wie die Verwendung von FTP, die Authentifizierung mit Benutzername und Passwort ist die gleiche.
 
