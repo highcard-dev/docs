@@ -14,7 +14,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: <Translate id="intro-title">Introduction</Translate>,
-    link: "/docs/intro",
+    link: "/intro",
     description: (
       <Translate id="intro-desc">
         Introduction to the Druid project and its goals. Learn about the Druid
@@ -23,7 +23,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: <Translate id="guides-title">Guides</Translate>,
-    link: "/docs/category/guides",
+    link: "/category/guides",
     description: (
       <Translate id="guides-desc">
         Guides for using Druid. Learn how to use Druid to solve common problems.
@@ -32,7 +32,7 @@ const FeatureList: FeatureItem[] = [
   },
   {
     title: <Translate id="contribute-title">How to contribute</Translate>,
-    link: "/docs/intro",
+    link: "/intro",
     description: (
       <Translate id="contribute-desc">
         Learn how to contribute to Druid.
