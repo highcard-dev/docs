@@ -1,0 +1,34 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.General Information": {
+    "message": "Allgemeine Information",
+    "description": "The label for category General Information in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.General Information.link.generated-index.description": {
+    "message": "Allgemeine Information",
+    "description": "The generated-index page description for category General Information in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Guides": {
+    "message": "Guides",
+    "description": "The label for category Guides in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Gameservers": {
+    "message": "Gameservers",
+    "description": "The label for category Gameservers in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Gameservers.link.generated-index.description": {
+    "message": "Gameservers",
+    "description": "The generated-index page description for category Gameservers in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Contribute to Druid": {
+    "message": "Zu Druid beitragen",
+    "description": "The label for category Contribute to Druid in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Contribute to Druid.link.generated-index.description": {
+    "message": "Zu Druid beitragen",
+    "description": "The generated-index page description for category Contribute to Druid in sidebar tutorialSidebar"
+  }
+}
