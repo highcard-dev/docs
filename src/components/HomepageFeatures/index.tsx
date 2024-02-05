@@ -14,7 +14,7 @@ type FeatureItem = {
 const FeatureList: FeatureItem[] = [
   {
     title: <Translate id="intro-title">Introduction</Translate>,
-    link: "/intro",
+    link: "/",
     description: (
       <Translate id="intro-desc">
         Introduction to the Druid project and its goals. Learn about the Druid
