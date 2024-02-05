@@ -3,18 +3,20 @@ sidebar_position: 1
 ---
 
 # Access your server files
+
 ---
 
 Druid provides multiple ways to upload and edit all the files of your deployment. You can use the very famous **FTP** or the more modern HTTP-based **WebDAV** protocol.
 
 ## Using SFTP
+
 ---
 
 FTP is probably the most famous way to interact with remote files. We are using the secure FTP or SFTP variation, which uses SSH to transfer files encrypted between server and client. It is supported by every major FTP client.
 
 You can find your SFTP IP address and port number in the Druid deployment dashboard:
 
-![SFTP ip in Druid Dashboard](img/sftp-ip.png)
+![SFTP ip in Druid Dashboard](/img/sftp-ip.png)
 
 **Important:** Make sure you select the **SFTP-protocol** in you FTP client. (Compare to [Filezilla example below](#filezilla-example))
 
@@ -29,11 +31,11 @@ Let's have a quick look at a practical example on how to connect using the Filez
 
 #### 1. Open the Site Manager
 
-![Select Site Manager](img/filezilla/1-site-manager.png)
+![Select Site Manager](/img/filezilla/1-site-manager.png)
 
 #### 2. Configure connection
 
-![Select Site Manager](img/filezilla/2-site-manager-config.png)
+![Select Site Manager](/img/filezilla/2-site-manager-config.png)
 
 Here it is important to set the following fields:
 
@@ -48,12 +50,12 @@ Here it is important to set the following fields:
 
 If you get promted about the unknown server identity, you can just press **Ok**.
 
-![Select Site Manager](img/filezilla/4-cert.png)
+![Select Site Manager](/img/filezilla/4-cert.png)
 
 After that you should be connected. If not error will be shown in the Filezilla console.
 Usually you should find all your files in the **deployment**-folder.
 
-![Select Site Manager](img/filezilla/5-connected.png)
+![Select Site Manager](/img/filezilla/5-connected.png)
 
 ### Supported FTP-clients for every OS
 
@@ -72,10 +74,11 @@ Usually you should find all your files in the **deployment**-folder.
 You can also find a [very comprehensive list on Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_FTP_client_software#Operating_system_support)
 
 ## Using WebDAV
+
 ---
 
 Using WebDAV is similar to using FTP, the username and password authentication is the same.
 
-If you are considering WebDAV, you are probably more experienced and have a special need for using it.  
+If you are considering WebDAV, you are probably more experienced and have a special need for using it.
 
 Generally you can follow the FTP-guide, just make sure you use a client that supports the WebDAV protocol.

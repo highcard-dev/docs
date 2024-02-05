@@ -3,24 +3,26 @@ sidebar_position: 1
 ---
 
 # Zugriff auf deine Serverdateien
+
 ---
 
 Druid bietet mehrere Möglichkeiten, um alle Dateien deines Servers hochzuladen und zu bearbeiten. Du kannst das sehr bekannte **FTP** oder das modernere HTTP-basierte **WebDAV**-Protokoll verwenden.
 
 ## SFTP verwenden
+
 ---
 
 FTP ist wahrscheinlich die bekannteste Methode, um mit entfernten Dateien zu interagieren. Wir verwenden die sichere FTP- oder SFTP-Variante, die SSH nutzt, um Dateien verschlüsselt zwischen Server und Client zu übertragen. Sie wird von allen wichtigen FTP-Clients unterstützt.
 
 Du findest deine SFTP IP-Adresse und Portnummer im Druid Deployment Dashboard:
 
-![SFTP-IP im Druid Dashboard](img/sftp-ip.png)
+![SFTP-IP im Druid Dashboard](/img/sftp-ip.png)
 
 **Wichtig:** Stelle sicher, dass du das **SFTP-Protokoll** in deinem FTP-Client auswählst. (Vergleiche das [Filezilla-Beispiel unten](#filezilla-example))
 
 ### Kontozugangsdaten
 
-Der Benutzername und das Passwort für FTP sind die gleichen wie in der Druid-App.  
+Der Benutzername und das Passwort für FTP sind die gleichen wie in der Druid-App.
 
 **Das heißt, der Benutzername ist deine E-Mail und das Passwort ist dein normales Passwort**
 
@@ -30,11 +32,11 @@ Schauen wir uns kurz ein praktisches Beispiel an, wie man sich mit dem Filezilla
 
 #### 1. Öffne den Site Manager
 
-![Site Manager auswählen](img/filezilla/1-site-manager.png)
+![Site Manager auswählen](/img/filezilla/1-site-manager.png)
 
 #### 2. Konfiguriere die Verbindung
 
-![Site Manager auswählen](img/filezilla/2-site-manager-config.png)
+![Site Manager auswählen](/img/filezilla/2-site-manager-config.png)
 
 Hier ist es wichtig, die folgenden Felder zu setzen:
 
@@ -49,12 +51,12 @@ Hier ist es wichtig, die folgenden Felder zu setzen:
 
 Wenn du eine Meldung über die unbekannte Server-Identität erhältst, kannst du einfach **Ok** drücken.
 
-![Site Manager auswählen](img/filezilla/4-cert.png)
+![Site Manager auswählen](/img/filezilla/4-cert.png)
 
 Danach solltest du verbunden sein. Wenn nicht, wird in der Filezilla-Konsole ein Fehler angezeigt.
 Normalerweise solltest du alle deine Dateien im **deployment**-Ordner finden.
 
-![Select Site Manager](img/filezilla/5-connected.png)
+![Select Site Manager](/img/filezilla/5-connected.png)
 
 ### Unterstützte FTP-Clients für jedes OS
 
@@ -73,10 +75,11 @@ Normalerweise solltest du alle deine Dateien im **deployment**-Ordner finden.
 Du kannst auch eine [sehr umfassende Liste auf Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_FTP_client_software#Operating_system_support) finden
 
 ## WebDAV verwenden
+
 ---
 
 Die Verwendung von WebDAV ist ähnlich wie die Verwendung von FTP, die Authentifizierung mit Benutzername und Passwort ist die gleiche.
 
-Wenn du WebDAV in Erwägung ziehst, bist du wahrscheinlich schon erfahrener und hast einen besonderen Bedarf für die Nutzung von WebDAV.  
+Wenn du WebDAV in Erwägung ziehst, bist du wahrscheinlich schon erfahrener und hast einen besonderen Bedarf für die Nutzung von WebDAV.
 
 Im Allgemeinen kannst du dem FTP-Leitfaden folgen, du musst nur sicherstellen, dass du einen Client verwendest, der das WebDAV-Protokoll unterstützt.
