@@ -1,4 +1,5 @@
 ---
+slug: /
 sidebar_position: 1
 ---
 
@@ -30,7 +31,7 @@ There you will also receive news, events and changes regarding Druid.
 
 If you would like to improve the documentation in any way, you are welcome.
 
-If you are interested, you can find the [Instructions for Submitting Change Proposals here.](/docs/contribute/contribute-docs)
+If you are interested, you can find the [Instructions for Submitting Change Proposals here.](/contribute/contribute-docs)
 
 ## 📚 Druid Basics
 ---
@@ -39,8 +40,8 @@ Our documentation is designed to help you get started and use the Druid platform
 
 It gives you an overview of:
 
-- [General Information](/docs/general/beta)
-- [Druid Guides](/docs/category/guides)
-- [Gameserver Guides](/docs/category/gameservers)
-- [Contributing to the Documentation](/docs/contribute/contribute-docs)
+- [General Information](/general/beta)
+- [Druid Guides](/category/guides)
+- [Gameserver Guides](/category/gameservers)
+- [Contributing to the Documentation](/contribute/contribute-docs)
 
