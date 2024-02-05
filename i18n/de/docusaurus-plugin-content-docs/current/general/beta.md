@@ -3,16 +3,12 @@ sidebar_position: 1
 ---
 
 # Druid Beta
+---
 
-Druid befindet sich derzeit in einer geschlossenen Beta-Phase.
-Alle Gameserver sind vorerst kostenlos. Das Ziel der geschlossenen Alpha-Phase ist es, die Technologie, die wir entwickelt haben, zu validieren und zu verbessern.
-Um an der Beta teilzunehmen, musst du dich nur in der Druid App [anmelden] (https://app.druid.gg/signup).
-Du erhältst eine E-Mail, wenn dein Account freigeschaltet wird.
+Druid befindet sich derzeit in der Early Beta.
 
-## Updates auf Discord erhalten
+Alle Spielserver sind während der Beta kostenlos. Ziel der Early Beta ist es, die von uns entwickelte Technologie zu testen und zu verbessern.
 
-TODO
+Um an der Beta teilzunehmen, musst du dich nur für die [Druid-App registrieren](https://app.druid.gg/signup).
 
-## Mana Drops
-
-TODO
+Du erhältst eine E-Mail, sobald dein Account freigeschaltet ist.

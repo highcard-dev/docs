@@ -3,17 +3,16 @@ sidebar_position: 1
 ---
 
 # Access your server files
+---
 
-Druid provides multiple ways to upload and edit all the files of your deployment.
-You can use the very famous **FTP** or the more modern HTTP-based **WebDAV** protocol.
+Druid provides multiple ways to upload and edit all the files of your deployment. You can use the very famous **FTP** or the more modern HTTP-based **WebDAV** protocol.
 
 ## Using SFTP
+---
 
-FTP is probably the most famous way to interact with remote files.
-We are using the **secure FTP or SFTP** variation, wich uses SSH to transfer files encrypted between server and client.
-It is supported by every major FTP client.
+FTP is probably the most famous way to interact with remote files. We are using the secure FTP or SFTP variation, which uses SSH to transfer files encrypted between server and client. It is supported by every major FTP client.
 
-You can find you SFTP ip address and port number in the Druid deployment dashboard:
+You can find your SFTP IP address and port number in the Druid deployment dashboard:
 
 ![SFTP ip in Druid Dashboard](img/sftp-ip.png)
 
@@ -73,8 +72,10 @@ Usually you should find all your files in the **deployment**-folder.
 You can also find a [very comprehensive list on Wikipedia](https://en.wikipedia.org/wiki/Comparison_of_FTP_client_software#Operating_system_support)
 
 ## Using WebDAV
+---
 
-Using WebDAV is vers similar to using FTP, the username and password authentication is the same.
+Using WebDAV is similar to using FTP, the username and password authentication is the same.
 
-If you are considering WebDAV, you are probably more experienced and have a special need for using it.
-Generally you can flow the FTP-guide, just make sure you use a client that supports the WebDAV protocol.
+If you are considering WebDAV, you are probably more experienced and have a special need for using it.  
+
+Generally you can follow the FTP-guide, just make sure you use a client that supports the WebDAV protocol.

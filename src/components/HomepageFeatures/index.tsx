@@ -3,6 +3,7 @@ import Heading from "@theme/Heading";
 import styles from "./styles.module.css";
 import Link from "@docusaurus/Link";
 import Translate from "@docusaurus/Translate";
+import Docu from '@site/static/img/docu.png';
 
 type FeatureItem = {
   title: JSX.Element;
@@ -57,6 +58,9 @@ export default function HomepageFeatures(): JSX.Element {
   return (
     <section className={styles.features}>
       <div className="container">
+      <div style={{ textAlign: "center" }}>
+        <img width="70%" src={Docu} alt="Bildbeschreibung" />
+      </div>
         <div className="row">
           {FeatureList.map((props, idx) => (
             <Feature key={idx} {...props} />

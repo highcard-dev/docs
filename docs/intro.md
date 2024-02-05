@@ -2,17 +2,45 @@
 sidebar_position: 1
 ---
 
-# Welcome
+# Welcome to Druid!
+---
 
-Welcome to the _Druid Documentation_.
-We are still in the process of builing up our Docs.
-If you want to participate, please feel very welcome to contribute.
+**Druid** is currently in **Early Beta**!
 
-## Content
+This phase is characterized by constant development and optimization.
 
-This Documentation aims to help you understand and navigate the Druid Platform with all it's different features and components.
-It is routhly divided into
+Therefore, your feedback is extremely important for us to improve.
 
-- [General](/docs/contribute/intro)
+We appreciate every support from the community and are grateful for everyone who participates.
+
+## 💡 Feedback? We want it!
+---
+
+Have suggestions or discovered bugs? Join our [Discord](https://discord.com/invite/UUXpmx24ua) and share them with us!
+
+There you will also receive news, events and changes regarding Druid.
+
+[![Join Discord](general/img/discord.png)](https://discord.com/invite/UUXpmx24ua)
+
+[Join us on Discord!](https://discord.com/invite/UUXpmx24ua)
+
+
+## 📝 Improve the Documentation
+---
+
+If you would like to improve the documentation in any way, you are welcome.
+
+If you are interested, you can find the [Instructions for Submitting Change Proposals here.](/docs/contribute/contribute-docs)
+
+## 📚 Druid Basics
+---
+
+Our documentation is designed to help you get started and use the Druid platform.  
+
+It gives you an overview of:
+
+- [General Information](/docs/general/beta)
 - [Druid Guides](/docs/category/guides)
 - [Gameserver Guides](/docs/category/gameservers)
+- [Contributing to the Documentation](/docs/contribute/contribute-docs)
+
