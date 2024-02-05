@@ -31,7 +31,7 @@ Dort wirst du auch gleich über Neuigkeiten, Events und Änderungen rund um Drui
 ---
 Jeder Beitrag zur Verbesserung unserer Dokumentation ist herzlich willkommen.  
 
-Falls du Interesse hast, findest du hier eine [Anleitung zum Einreichen von Änderungsvorschlägen.](/docs/contribute/contribute-docs)
+Falls du Interesse hast, findest du hier eine [Anleitung zum Einreichen von Änderungsvorschlägen.](/contribute/contribute-docs)
  
 
 ## 📚 Druid Grundlagen
@@ -41,7 +41,7 @@ Unsere Dokumentation soll dir den Einstieg und die Nutzung der Druid Plattform e
 
 Sie bietet dir einen Überblick über:
 
-- [Allgemeines](/docs/general/beta)
-- [Druid Guides](/docs/category/guides)
-- [Gameserver Guides](/docs/category/gameservers)
-- [Zur Dokumentation beitragen](/docs/contribute/contribute-docs)
+- [Allgemeines](/general/beta)
+- [Druid Guides](/category/guides)
+- [Gameserver Guides](/category/gameservers)
+- [Zur Dokumentation beitragen](/contribute/contribute-docs)
