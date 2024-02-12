@@ -18,7 +18,7 @@ Du findest deine SFTP IP-Adresse und Portnummer im Druid Deployment Dashboard:
 
 ![SFTP-IP im Druid Dashboard](/img/sftp-ip.png)
 
-**Wichtig:** Stelle sicher, dass du das **SFTP-Protokoll** in deinem FTP-Client auswählst. (Vergleiche das [Filezilla-Beispiel unten](#filezilla-example))
+**Wichtig:** Stelle sicher, dass du das **SFTP-Protokoll** in deinem FTP-Client auswählst. (Vergleiche das [Filezilla-Beispiel unten](#filezilla-beispiel))
 
 ### Kontozugangsdaten
 
