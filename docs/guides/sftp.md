@@ -25,6 +25,17 @@ You can find your SFTP IP address and port number in the Druid deployment dashbo
 The username and password for FTP are the same as in the Druid app.
 **This means the username is your email and the password just you normal password**
 
+### Discord Registration
+If you used Discord for registration, you must set a password before you can connect via SFTP.
+
+#### 1. Press your user icon at the bottom left of the website
+
+![Press user icon](/img/filezilla/reg_discord.png)
+
+#### 2. Set your Password
+
+![set password](/img/filezilla/set_password.png)
+
 ### Filezilla example
 
 Let's have a quick look at a practical example on how to connect using the Filezilla FTP-client.

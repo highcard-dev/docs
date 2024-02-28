@@ -22,9 +22,21 @@ Du findest deine SFTP IP-Adresse und Portnummer im Druid Deployment Dashboard:
 
 ### Kontozugangsdaten
 
-Der Benutzername und das Passwort für FTP sind die gleichen wie in der Druid-App.
+Der Benutzername und das Passwort für FTP sind die gleichen wie in der Druid-App. 
 
 **Das heißt, der Benutzername ist deine E-Mail und das Passwort ist dein normales Passwort**
+
+### Discord Registrierung
+Solltest du Discord für die Registrierung verwendet haben, so muss du bevor du dich per SFTP verbinden kannst ein Passwort setzen.
+
+#### 1. Drücke auf dein Benutzericon unten links auf der Webseite 
+
+![Benutzericon drücken](/img/filezilla/reg_discord.png)
+
+#### 2. Setze dein Passwort
+
+![Benutzericon drücken](/img/filezilla/set_password.png)
+
 
 ### Filezilla Beispiel
 
