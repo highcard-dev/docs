@@ -85,6 +85,12 @@ const config: Config = {
           label: "Go to App",
           position: "right",
         },
+        {
+          type: "html",
+          position: "right",
+          value:
+            '<iframe src="https://ghbtns.com/github-btn.html?user=highcard-dev&repo=druid-cli&type=star&count=true" frameborder="0" scrolling="0" width="170" height="20" style="margin-top: 5px" title="GitHub"></iframe>',
+        },
       ],
     },
     footer: {
@@ -136,8 +142,14 @@ const config: Config = {
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      additionalLanguages: ["bash"],
     },
   } satisfies Preset.ThemeConfig,
+
+  markdown: {
+    mermaid: true,
+  },
+  themes: ["@docusaurus/theme-mermaid"],
 };
 
 export default config;

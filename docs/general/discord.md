@@ -4,8 +4,6 @@ sidebar_position: 3
 
 # Druid Discord
 
----
-
 Our [Druid Discord](https://discord.com/invite/UUXpmx24ua) is the central point of contact for all things regarding Druid and more!
 
 Benefits of membership:
