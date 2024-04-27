@@ -1,8 +1,4 @@
 {
   "label": "Druid CLI",
-  "position": 5,
-  "link": {
-    "type": "generated-index",
-    "description": "Documentation for the Druid CLI (https://github.com/highcard-dev/druid-cli)"
-  }
+  "position": 5
 }
