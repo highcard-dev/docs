@@ -111,10 +111,12 @@ Key value list of available commands. A command has the following layout:
   - an array of commands wich need to be run before the command accually starts.
 - **run:** available options always (default), restart or once
 
+### processes.commands.procedures
+
 - **procedures:** list of commands to run.
   - **mode**
     - **exec**: run process
     - **exec_tty**: run process in tty mode
     - **stdin**: send data to stdin of a certain process
-    - different values are also possible [if you used a plugin](todo).
+    - different values are also possible [if you used a plugin](plugins).
   - **data:** array with informations, depending on mode
