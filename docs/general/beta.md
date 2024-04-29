@@ -3,7 +3,6 @@ sidebar_position: 1
 ---
 
 # Druid Beta
----
 
 Druid is currently in early beta.
 
