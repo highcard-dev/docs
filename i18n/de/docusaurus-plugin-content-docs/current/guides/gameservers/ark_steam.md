@@ -1,8 +1,8 @@
 ---
-sidebar_position: 6
+sidebar_position: 5
 ---
 
-# Wie verbinde ich mich mit meinem ARK Server
+# Wie verbinde ich mich mit meinem ARK Server mit Steam
 ---
 
 ## 1. Kopiere deine Query Adresse

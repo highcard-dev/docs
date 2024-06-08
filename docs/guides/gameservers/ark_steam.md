@@ -1,8 +1,8 @@
 ---
-sidebar_position: 6
+sidebar_position: 5
 ---
 
-# How to Connect to an ARK Server
+# How to Connect to an ARK Server with Steam
 ---
 
 ## 1. Copy Your Query Address
