@@ -30,5 +30,13 @@
   "sidebar.tutorialSidebar.category.Contribute to Druid.link.generated-index.description": {
     "message": "How to contribute to Druid",
     "description": "The generated-index page description for category Contribute to Druid in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Druid CLI": {
+    "message": "Druid CLI",
+    "description": "The label for category Druid CLI in sidebar tutorialSidebar"
+  },
+  "sidebar.tutorialSidebar.category.Commands": {
+    "message": "Commands",
+    "description": "The label for category Commands in sidebar tutorialSidebar"
   }
 }
