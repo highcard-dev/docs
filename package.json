@@ -9,6 +9,7 @@
     "start:blog": " MODE=BLOG docusaurus start",
     "start:blog:de": " MODE=BLOG docusaurus start --locale de",
     "build": "docusaurus build",
+    "build:blog": "MODE=BLOG docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
