@@ -76,11 +76,13 @@ const config: Config = {
           to: "https://docs.druid.gg/",
           label: "Docs",
           position: "left",
+          target: "_self",
         },
         {
           to: "https://blog.druid.gg/",
           label: "Blog",
           position: "left",
+          target: "_self",
         },
         {
           href: "https://app.druid.gg/",
