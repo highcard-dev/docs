@@ -1,0 +1,14 @@
+{
+  "title": {
+    "message": "Druid Blog",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Druid Blog Logo",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Go to App": {
+    "message": "Go to App",
+    "description": "Navbar item with label Go to App"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "intro-title": {
+    "message": "Einleitung"
+  },
+  "intro-desc": {
+    "message": "Ein erster Blick auf das Druid-Projekt und was wir vorhaben. Entdecke mehr über den Druiden"
+  },
+  "guides-title": {
+    "message": "Guides"
+  },
+  "guides-desc": {
+    "message": "Guides zur Nutzung von Druid. Lerne, wie du Druid einsetzt, um alltägliche Probleme zu lösen."
+  },
+  "contribute-title": {
+    "message": "Mitmachen"
+  },
+  "contribute-desc": {
+    "message": "Finde heraus, wie du bei Druid mitwirken kannst."
+  }
+}
