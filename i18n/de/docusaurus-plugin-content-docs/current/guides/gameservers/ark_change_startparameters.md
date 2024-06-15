@@ -36,7 +36,7 @@ Ersetze "TheIsland" durch eine der Standard Maps, die du spielen möchtest.
 
 ## 6. Deaktiviere Anti-Cheat BattlEye und VAC
 
-Wenn du Verbindungsprobleme mit Epic Games oder Steam hast, füge `-NoBattlEye` und `-insecure` zu deinen Startparametern hinzu.
+Wenn du über den Epic Games Launcher spielst, füge `-NoBattlEye` und `-insecure` zu deinen Startparametern hinzu.
 
 Wenn du möchtest, kannst du diesen Inhalt auch einfach kopieren und mit deinem ersetzen.
 
@@ -68,6 +68,6 @@ Weitere Startparameter findest du in der [LinuxGSM-Dokumentation](https://docs.l
 
 - Stelle sicher, dass du deine **Einstellungen korrekt** in die Datei `arkserver.cfg.scroll_template` einfügst.
 - **Starte deinen Server neu**, nachdem du Änderungen vorgenommen hast, um die neuen Einstellungen zu übernehmen.
-- **Deaktiviere Anti-Cheat-Einstellungen**, wenn du Verbindungsprobleme hast.
+- **Deaktiviere Anti-Cheat-Einstellungen**, wenn du über den Epic Games Launcher spielst.
 
 Viel Spaß!

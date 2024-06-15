@@ -70,6 +70,6 @@ More start parameters can be found on the [LinuxGSM documentation](https://docs.
 
 - Ensure you **paste your settings** correctly into the `arkserver.cfg.scroll_template` file.
 - **Restart your server** after making changes to apply the new settings.
-- **Disable Anti Cheat** settings if experiencing connection issues.
+- **Disable Anti Cheat** settings if you are playing via Epic Games.
 
 Enjoy your gaming experience!
