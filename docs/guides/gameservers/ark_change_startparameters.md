@@ -31,7 +31,7 @@ Paste your copied settings into the `arkserver.cfg.scroll_template` file below t
 
 Replace "TheIsland" with one of the default maps you want to play on.
 
-`Default Map: TheIsland, Ragnarok, CrystalIsles, Aberration_P, ScorchedEarth_P, TheCenter, Extinction, Valguero_P, Genesis, Gen2`
+`Default Map: TheIsland, Ragnarok, CrystalIsles, Aberration_P, ScorchedEarth_P, TheCenter, Extinction, Valguero_P, Genesis, Gen2, Fjordur`
 
 ![Change Default Map](/img/ark/change_defaultmap.png)
 
