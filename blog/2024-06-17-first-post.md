@@ -25,4 +25,4 @@ We hope to share stories or do general blogposts about interesting things relate
 Let's see if we are able to create processes around this blog, to make it great!
 
 ## Contribute
-If you have any ideas for interesting topics, hit me up on [Discord](TODO).
+If you have any ideas for interesting topics, hit me up on [Discord](/tags/hello).
