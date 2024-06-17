@@ -6,16 +6,16 @@
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
     "start:de": "docusaurus start --locale de",
-    "start:blog": " MODE=BLOG docusaurus start",
-    "start:blog:de": " MODE=BLOG docusaurus start --locale de",
+    "start:blog": " cross-env MODE=BLOG docusaurus start",
+    "start:blog:de": " cross-env MODE=BLOG docusaurus start --locale de",
     "build": "docusaurus build",
-    "build:blog": "MODE=BLOG docusaurus build",
+    "build:blog": "cross-env MODE=BLOG docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
-    "write-translations:blog": "MODE=BLOG docusaurus write-translations",
+    "write-translations:blog": "cross-env MODE=BLOG docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc"
   },
@@ -33,6 +33,7 @@
     "@docusaurus/module-type-aliases": "3.0.1",
     "@docusaurus/tsconfig": "3.0.1",
     "@docusaurus/types": "3.0.0",
+    "cross-env": "^7.0.3",
     "typescript": "~5.2.2"
   },
   "browserslist": {
