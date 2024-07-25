@@ -16,6 +16,7 @@ image: https://druid.gg/img/logo.svg
 hide_table_of_contents: false
 ---
 
+CHANGE THIS
 Welcome to this blog. This blog is created with [**Docusaurus 2**](https://docusaurus.io/).
 
 <!-- truncate -->
