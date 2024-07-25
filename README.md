@@ -19,7 +19,7 @@ This command starts a local development server and opens up a browser window. Mo
 ### Build
 
 ```
-$ yarn build
+$ yarn build xd
 ```
 
 This command generates static content into the `build` directory and can be served using any static contents hosting service.
