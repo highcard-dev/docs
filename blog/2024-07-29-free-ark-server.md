@@ -33,11 +33,11 @@ Set up your own ARK: Survival Evolved server with Druid.gg and customize it with
 - [How to add Mods](https://docs.druid.gg/guides/gameservers/ark_add_mods)
 - [How to change Maps and disable Anti-Cheat](https://docs.druid.gg/guides/gameservers/ark_change_startparameters)
 
-## Boost for Ultimate Power!
+<!--- comment ## Boost for Ultimate Power!
 
 Want to take your ARK experience to the next level? Boost your server's power for more mods, dinosaurs, and epic gameplay! For a small fee, enjoy blazing fast performance and seamless adventures. The free version is fantastic, but if you want more, boosting is the way to go!
 
-We make sure you only pay when you play. With our advanced feature **Only Pay When You Play Mode**: Servers enter sleep mode when not in use to save you money and auto-start when someone connects.
+We make sure you only pay when you play. With our advanced feature **Only Pay When You Play Mode**: Servers enter sleep mode when not in use to save you money and auto-start when someone connects.-->
 
 
 ## Join Druid Discord

@@ -34,12 +34,12 @@ Richte deinen eigenen ARK: Survival Evolved Server mit Druid.gg ein und passe ih
 - [Wie man Mods hinzufügt](https://docs.druid.gg/guides/gameservers/ark_add_mods)
 - [Wie man Karten wechselt und Anti-Cheat deaktiviert](https://docs.druid.gg/guides/gameservers/ark_change_startparameters)
 
-## Boost für ultimative Power!
+<!--- comment ## Boost für ultimative Power!
 
 Möchtest du dein ARK-Erlebnis auf das nächste Level bringen? Booste die Leistung deines Servers für mehr Mods, Dinosaurier und episches Gameplay! Für eine geringe Gebühr genießt du blitzschnelle Leistung und nahtlose Abenteuer. Die kostenlose Version ist großartig, aber wenn du mehr willst, ist ein Boost der richtige Weg!
 
 Wir sorgen dafür, dass du nur zahlst, wenn du spielst. Mit unserer fortschrittlichen Funktion **Nur Zahlen, Wenn Du Spielst**: Server gehen in den Ruhemodus, wenn sie nicht genutzt werden, um Geld zu sparen und starten automatisch, wenn jemand sich verbindet.
-
+-->
 ## Tritt dem Druid Discord bei
 [![Discord beitreten](/img/discord.png)](https://discord.com/invite/UUXpmx24ua)
 
