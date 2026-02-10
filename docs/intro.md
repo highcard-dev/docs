@@ -7,7 +7,7 @@ sidebar_position: 1
 
 ---
 
-**Druid** is currently in **Early Beta**!
+**Druid** is a smart container orchestration platform for game servers with intelligent wake-on-demand automation. Currently in **Early Beta**!
 
 This phase is characterized by constant development and optimization.
 
