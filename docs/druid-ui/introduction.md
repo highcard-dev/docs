@@ -120,7 +120,18 @@ ui:
 
 ### Components
 
-DruidUI uses a **functional component model** inspired by React and Mithril.js:
+DruidUI uses a **functional component model** inspired by [React](https://react.dev) and [Mithril.js](https://mithril.js.org/).
+
+**Similarities to Mithril.js:**
+- Simple, functional component architecture
+- Every event triggers a rerender (no complex diffing)
+- Lightweight and easy to reason about
+- Virtual DOM with Snabbdom (Mithril uses similar approach)
+- No magic, explicit control flow
+
+**Key difference:** DruidUI compiles to WebAssembly for sandboxing, while Mithril runs as plain JavaScript.
+
+Example component:
 
 ```tsx
 const MyComponent = ({ title, count }: Props) => (
