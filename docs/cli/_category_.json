@@ -1,9 +1,4 @@
 {
-  "label": "API Reference",
-  "position": 100,
-  "collapsed": false,
-  "link": {
-    "type": "doc",
-    "id": "cli/druid-cli"
-  }
+  "label": "Druid CLI",
+  "position": 5
 }

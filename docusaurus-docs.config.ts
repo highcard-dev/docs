@@ -88,7 +88,7 @@ const config: Config = {
           target: "_self",
         },
         {
-          to: "/cli",
+          to: "/cli/api",
           label: "API",
           position: "left",
         },
@@ -187,7 +187,7 @@ const config: Config = {
         config: {
           druidApi: {
             specPath: "openapi.yaml",
-            outputDir: "docs/cli",
+            outputDir: "docs/cli/api",
             sidebarOptions: {
               groupPathsBy: "tag",
             },
