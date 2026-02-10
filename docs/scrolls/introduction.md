@@ -795,12 +795,10 @@ commands:
           - /data/postgres
 ```
 
-## Next Steps
+## Learn More
 
-- [Scroll API Reference](./api-reference.md)
-- [Creating Custom Scrolls](./creating-scrolls.md)
-- [Publishing to Registry](./publishing.md)
-- [Community Scrolls](https://github.com/highcard-dev/scrolls)
+- [Community Scrolls Repository](https://github.com/highcard-dev/scrolls) - Browse and contribute scrolls
+- [Druid CLI Repository](https://github.com/highcard-dev/druid-cli) - Core CLI tool
 
 ## FAQ
 
