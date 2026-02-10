@@ -31,6 +31,44 @@ scrolls/minecraft/papermc/1.21.7/
     └── rcon.yaml               # RCON plugin config
 ```
 
+## Command Names: Completely Customizable!
+
+**Important:** In Druid scrolls, **command names are completely free** - you can name them whatever you want! 
+
+There are **no required command names**. While you'll see common conventions like `start`, `stop`, `install`, these are just examples. You have total freedom:
+
+- ✅ `launch` instead of `start`
+- ✅ `shutdown` instead of `stop`
+- ✅ `setup` instead of `install`
+- ✅ `do_magic`, `run_server`, `bootstrap` - anything you want!
+
+The only rule: reference your custom names correctly in `init` and `needs`.
+
+**Example with custom names:**
+
+```yaml
+init: "launch_server"      # Your custom name
+
+commands:
+  setup_everything:        # Custom name 1
+    procedures:
+      - mode: exec
+        data: [./setup.sh]
+  
+  launch_server:           # Custom name 2
+    needs: [setup_everything]
+    procedures:
+      - mode: exec
+        data: [./server]
+  
+  shutdown_gracefully:     # Custom name 3
+    procedures:
+      - mode: signal
+        data: SIGTERM
+```
+
+**All command names shown in this documentation (`start`, `stop`, `install`, etc.) are just conventions, not requirements.**
+
 ## Why Scrolls?
 
 ### The Problem with Traditional Hosting
@@ -106,17 +144,18 @@ ports:
     protocol: tcp
     port: 7777
 
-init: "start"
+# Can be ANY command name you choose!
+init: "launch"
 
 commands:
-  start:
+  launch:              # Your custom name
     procedures:
       - mode: exec
         data:
           - ./game-server
           - --port=7777
   
-  stop:
+  halt:                # Another custom name
     procedures:
       - mode: signal
         data: SIGTERM
@@ -143,12 +182,12 @@ ports:
     protocol: tcp
     port: 25575
 
-# Default command to run
+# Default command to run (choose any name!)
 init: "start"
 
-# Command definitions
+# Command definitions (all names are customizable)
 commands:
-  # Start server
+  # Start server (could also be named: launch, run, boot, etc.)
   start:
     needs: [install]              # Prerequisites
     run: restart                  # Restart policy
@@ -159,13 +198,13 @@ commands:
           - bash
           - ./start.sh
   
-  # Stop server
+  # Stop server (could also be named: halt, shutdown, kill, etc.)
   stop:
     procedures:
       - mode: rcon                # Use RCON plugin
         data: stop
   
-  # Install server
+  # Install server (could also be named: setup, bootstrap, init, etc.)
   install:
     run: once                     # Only run once
     dependencies: [wget, cacert]
@@ -184,7 +223,7 @@ commands:
           - -c
           - echo eula=true > eula.txt
   
-  # Update server
+  # Update server (could also be named: upgrade, refresh, patch, etc.)
   update:
     procedures:
       - mode: exec
@@ -214,8 +253,8 @@ plugins:
 | `version` | string | ✅ | Scroll version (semver) |
 | `app_version` | string | ✅ | Application version |
 | `ports` | array | ✅ | Port definitions |
-| `init` | string | ✅ | Initial command to run |
-| `commands` | object | ✅ | Command definitions |
+| `init` | string | ✅ | Initial command to run (use your custom name!) |
+| `commands` | object | ✅ | Command definitions (custom names!) |
 | `plugins` | object | ❌ | Plugin configurations |
 
 ### Port Definition
@@ -234,9 +273,11 @@ ports:
 
 ### Command Definition
 
+**Remember:** You can name these commands whatever you want!
+
 ```yaml
 commands:
-  my_command:
+  your_custom_command_name:       # FREELY choose any name
     needs: [other_command]        # Prerequisites (optional)
     run: restart                  # once | always | restart (optional)
     dependencies: [jdk21, wget]   # System dependencies (optional)
@@ -296,23 +337,25 @@ ports:
     port: 7777
     sleep_handler: packet_handler/generic.lua
 
-init: "start"
+# Choose your own command name!
+init: "launch"
 
 commands:
-  start:
-    needs: [install]
+  # Custom command names - use whatever makes sense!
+  launch:
+    needs: [setup]
     run: restart
     procedures:
       - mode: exec
         data:
           - ./start-server.sh
   
-  stop:
+  halt:
     procedures:
       - mode: signal
         data: SIGTERM
   
-  install:
+  setup:
     run: once
     dependencies: [wget]
     procedures:
@@ -368,372 +411,9 @@ git push origin main --tags
 # Artifact available at: artifacts.druid.gg/my-org/scroll-my-game:1.0.0
 ```
 
-## ColdStarter Integration
+## Examples with Custom Command Names
 
-Scrolls integrate with ColdStarter for wake-on-demand.
-
-### Adding ColdStarter Support
-
-1. **Create packet handler:**
-
-```lua
--- packet_handler/my_game.lua
-function handle(ctx, data)
-    -- Parse incoming packet
-    local packet_type = detectPacketType(data)
-    
-    -- Respond to status query
-    if packet_type == "STATUS" then
-        sendData(buildStatusResponse({
-            name = "My Game Server",
-            players = 0,
-            max = 20,
-            status = "Waking up..."
-        }))
-    end
-    
-    -- Trigger wake on connection
-    if packet_type == "CONNECT" then
-        finish()  -- Start the server
-    end
-end
-```
-
-2. **Reference in scroll.yaml:**
-
-```yaml
-ports:
-  - name: game
-    port: 7777
-    protocol: tcp
-    sleep_handler: packet_handler/my_game.lua
-```
-
-3. **Configure idle shutdown:**
-
-```yaml
-coldstarter:
-  idle_timeout: 300      # 5 minutes idle = sleep
-  wake_timeout: 60       # Max 60s wake time
-  snapshot_mode: auto    # Enable snapshots
-```
-
-## Plugin System
-
-Scrolls can enable plugins for additional functionality.
-
-### Available Plugins
-
-| Plugin | Description | Configuration |
-|--------|-------------|---------------|
-| `rcon` | Remote console access | Port, password |
-| `sftp` | File transfer | User, password |
-| `metrics` | Prometheus metrics | Port, endpoints |
-| `backup` | Automated backups | Schedule, retention |
-
-### Example: RCON Plugin
-
-```yaml
-plugins:
-  rcon:
-    port: 25575
-    password: ${RCON_PASSWORD}  # From environment
-```
-
-Use in commands:
-
-```yaml
-commands:
-  stop:
-    procedures:
-      - mode: rcon
-        data: stop
-  
-  say_hello:
-    procedures:
-      - mode: rcon
-        data: say Hello players!
-```
-
-## Environment Variables
-
-Scrolls support environment variable substitution:
-
-```yaml
-commands:
-  start:
-    procedures:
-      - mode: exec
-        data:
-          - ./server
-          - --port=${PORT_GAME}              # From port definition
-          - --max-players=${MAX_PLAYERS}     # Custom variable
-          - --world=${WORLD_NAME}            # User-provided
-```
-
-Built-in variables:
-
-- `${PORT_<name>}` - Port numbers from port definitions
-- `${SCROLL_DIR}` - Path to scroll directory
-- `${DATA_DIR}` - Path to persistent data
-- `${VERSION}` - Scroll version
-- `${APP_VERSION}` - Application version
-
-## Best Practices
-
-### 1. Use Semantic Versioning
-
-```yaml
-version: 1.2.3
-app_version: 2024.1.0
-
-# version = scroll version (your changes)
-# app_version = game/app version (upstream)
-```
-
-### 2. Minimize Container Size
-
-```yaml
-# ✅ Good: Download only what's needed
-install:
-  procedures:
-    - mode: exec
-      data: [wget, -q, -O, server.jar, $URL]
-
-# ❌ Bad: Cloning entire repo
-install:
-  procedures:
-    - mode: exec
-      data: [git, clone, --depth=1, $REPO]
-```
-
-### 3. Handle Updates Gracefully
-
-```yaml
-update:
-  procedures:
-    # Backup before update
-    - mode: exec
-      data: [cp, -r, world, world.backup]
-    
-    # Download new version
-    - mode: exec
-      data: [wget, -O, server.jar, $NEW_URL]
-    
-    # Verify integrity
-    - mode: exec
-      data: [sha256sum, -c, server.jar.sha256]
-```
-
-### 4. Use Idempotent Commands
-
-```yaml
-# ✅ Good: Can run multiple times safely
-install:
-  run: once
-  procedures:
-    - mode: exec
-      data:
-        - bash
-        - -c
-        - |
-          if [ ! -f server.jar ]; then
-            wget -O server.jar $URL
-          fi
-
-# ❌ Bad: Fails on second run
-install:
-  procedures:
-    - mode: exec
-      data: [wget, -O, server.jar, $URL]  # Error if exists
-```
-
-### 5. Document Custom Variables
-
-```yaml
-# scroll.yaml
-# 
-# Environment Variables:
-#   MAX_PLAYERS - Maximum player count (default: 20)
-#   WORLD_NAME - World name (default: world)
-#   DIFFICULTY - Game difficulty (default: normal)
-#
-
-commands:
-  start:
-    procedures:
-      - mode: exec
-        data:
-          - ./server
-          - --max-players=${MAX_PLAYERS:-20}
-          - --world=${WORLD_NAME:-world}
-          - --difficulty=${DIFFICULTY:-normal}
-```
-
-## Contributing Scrolls
-
-### Contribution Guidelines
-
-1. **Fork the [scrolls repository](https://github.com/highcard-dev/scrolls)**
-
-2. **Create scroll in proper directory:**
-   ```
-   scrolls/<game-name>/<variant>/<version>/
-   ```
-
-3. **Test thoroughly:**
-   - Fresh install works
-   - Start/stop works
-   - Update works
-   - ColdStarter handler (if applicable)
-   - Plugins work
-
-4. **Follow naming conventions:**
-   ```yaml
-   name: artifacts.druid.gg/community/<game>-<variant>
-   desc: <Game Name> - <Variant> (<Version>)
-   ```
-
-5. **Submit pull request** with:
-   - Description of the game/app
-   - Testing performed
-   - Any special requirements
-   - Links to official documentation
-
-### Review Process
-
-PRs are reviewed for:
-- ✅ Scroll.yaml syntax valid
-- ✅ Commands work as expected
-- ✅ Dependencies properly specified
-- ✅ ColdStarter integration (if game supports)
-- ✅ Documentation clear
-- ✅ No hardcoded secrets
-
-Approved scrolls are:
-1. Merged to main branch
-2. Auto-built by CI/CD
-3. Published to artifacts.druid.gg
-4. Available in Druid CLI
-
-## Troubleshooting
-
-### Scroll Won't Build
-
-**Error**: `invalid scroll.yaml format`
-
-**Solution**: Validate YAML syntax
-```bash
-druid scroll validate scroll.yaml
-```
-
-### Command Fails to Execute
-
-**Error**: `command 'install' failed with exit code 1`
-
-**Solution**: Check logs
-```bash
-druid logs
-# Review output for error messages
-```
-
-### Port Already in Use
-
-**Error**: `failed to bind port 25565: address already in use`
-
-**Solution**: Change port or stop conflicting service
-```yaml
-ports:
-  - name: game
-    port: 25566  # Use different port
-```
-
-### Dependencies Not Found
-
-**Error**: `dependency 'jdk21' not available`
-
-**Solution**: Check available dependencies
-```bash
-druid scroll deps
-# Lists all available system dependencies
-```
-
-## Advanced Topics
-
-### Custom Dependency Providers
-
-Define custom dependencies:
-
-```yaml
-dependencies:
-  my_lib:
-    install:
-      - mode: exec
-        data:
-          - wget
-          - https://example.com/lib.tar.gz
-      - mode: exec
-        data: [tar, -xzf, lib.tar.gz]
-    
-    env:
-      LD_LIBRARY_PATH: /path/to/lib
-
-commands:
-  start:
-    dependencies: [my_lib]
-    procedures:
-      - mode: exec
-        data: [./server]
-```
-
-### Multi-Stage Procedures
-
-Complex installation workflows:
-
-```yaml
-commands:
-  install:
-    procedures:
-      # Stage 1: Download
-      - mode: exec
-        data: [wget, -O, installer.sh, $URL]
-      
-      # Stage 2: Make executable
-      - mode: exec
-        data: [chmod, +x, installer.sh]
-      
-      # Stage 3: Run installer
-      - mode: exec
-        data: [./installer.sh, --unattended]
-      
-      # Stage 4: Cleanup
-      - mode: exec
-        data: [rm, installer.sh]
-```
-
-### Conditional Procedures
-
-Use shell scripts for conditional logic:
-
-```yaml
-commands:
-  update:
-    procedures:
-      - mode: exec
-        data:
-          - bash
-          - -c
-          - |
-            if [ -f server.jar.old ]; then
-              rm server.jar.old
-            fi
-            mv server.jar server.jar.old
-            wget -O server.jar $NEW_URL
-```
-
-## Examples
-
-### Simple HTTP Server
+### HTTP Server
 
 ```yaml
 name: artifacts.druid.gg/examples/http-server
@@ -746,10 +426,10 @@ ports:
     protocol: tcp
     port: 8080
 
-init: "start"
+init: "serve"           # Custom name!
 
 commands:
-  start:
+  serve:                # Not "start" - your choice!
     dependencies: [python3]
     procedures:
       - mode: exec
@@ -773,11 +453,11 @@ ports:
     protocol: tcp
     port: 5432
 
-init: "start"
+init: "run_database"    # Completely custom name!
 
 commands:
-  start:
-    needs: [init_db]
+  run_database:         # Your choice!
+    needs: [initialize_db]
     procedures:
       - mode: exec
         data:
@@ -785,7 +465,7 @@ commands:
           - -D
           - /data/postgres
   
-  init_db:
+  initialize_db:        # Also custom!
     run: once
     procedures:
       - mode: exec
@@ -804,6 +484,9 @@ commands:
 
 **Q: Can I use Docker images as scrolls?**  
 A: Not directly. Scrolls are OCI artifacts (like Docker), but use a different format. You can convert Docker workflows to scroll.yaml.
+
+**Q: Are command names like `start`, `stop`, `install` required?**  
+A: **NO!** Command names are completely free. Use any names you want: `launch`, `halt`, `setup`, `do_magic` - whatever makes sense for your application.
 
 **Q: How do I version scrolls?**  
 A: Use semantic versioning for `version` (your changes) and track upstream version in `app_version`.
