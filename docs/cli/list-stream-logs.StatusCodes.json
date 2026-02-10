@@ -1,0 +1,1 @@
+{"responses":{"200":{"description":"Log stream content","content":{"application/json":{"schema":{"type":"object","required":["key","log"],"properties":{"key":{"type":"string","description":"The log stream identifier"},"log":{"type":"array","items":{"type":"string"},"description":"Array of log lines"}},"title":"ScrollLogStream"}}}},"404":{"description":"Stream not found"}}}

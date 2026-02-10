@@ -40,6 +40,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl: "https://github.com/highcard-dev/docs/edit/master",
+          docItemComponent: "@theme/ApiItem", // Derived from docusaurus-theme-openapi-docs
         },
         theme: {
           customCss: "./src/css/custom.css",
@@ -85,6 +86,11 @@ const config: Config = {
           label: "Docs",
           position: "left",
           target: "_self",
+        },
+        {
+          to: "/cli",
+          label: "API",
+          position: "left",
         },
         {
           to: "https://blog.druid.gg/",
@@ -170,7 +176,26 @@ const config: Config = {
   markdown: {
     mermaid: true,
   },
-  themes: ["@docusaurus/theme-mermaid"],
+  themes: ["@docusaurus/theme-mermaid", "docusaurus-theme-openapi-docs"],
+  
+  plugins: [
+    [
+      "docusaurus-plugin-openapi-docs",
+      {
+        id: "api",
+        docsPluginId: "classic",
+        config: {
+          druidApi: {
+            specPath: "openapi.yaml",
+            outputDir: "docs/cli",
+            sidebarOptions: {
+              groupPathsBy: "tag",
+            },
+          },
+        },
+      },
+    ],
+  ],
 };
 
 export default config;

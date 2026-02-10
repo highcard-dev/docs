@@ -1,0 +1,1 @@
+{"responses":{"200":{"description":"Array of log streams","content":{"application/json":{"schema":{"type":"array","items":{"type":"object","required":["key","log"],"properties":{"key":{"type":"string","description":"The log stream identifier"},"log":{"type":"array","items":{"type":"string"},"description":"Array of log lines"}},"title":"ScrollLogStream"}}}}}}}

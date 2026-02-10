@@ -1,0 +1,1 @@
+{"responses":{"200":{"description":"Procedure completed synchronously","content":{"application/json":{"schema":{"type":"object"}}}},"201":{"description":"Procedure started asynchronously"},"400":{"description":"Bad request"}}}

@@ -1,0 +1,1 @@
+{"title":"Body","body":{"required":false,"content":{"application/json":{"schema":{"type":"object","required":["watchPaths"],"properties":{"watchPaths":{"type":"array","items":{"type":"string"},"description":"Directories to watch"},"hotReloadCommands":{"type":"array","items":{"type":"string"},"description":"Commands to run when files change"}},"title":"WatchModeRequest"}}}}}

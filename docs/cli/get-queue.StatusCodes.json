@@ -1,0 +1,1 @@
+{"responses":{"200":{"description":"Queue status map","content":{"application/json":{"schema":{"type":"object","description":"Map of command IDs to their execution status","additionalProperties":{"type":"string","enum":["running","done","error","waiting"],"description":"Status of a command in the queue","title":"ScrollLockStatus"},"title":"QueueResponse"}}}}}}
