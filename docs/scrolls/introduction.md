@@ -293,10 +293,13 @@ commands:
 | Mode | Description | Data Format |
 |------|-------------|-------------|
 | `exec` | Execute command | `string[]` - Command + args |
-| `rcon` | RCON command | `string` - Command to send |
-| `signal` | Send Unix signal | `string` - Signal name |
-| `http` | HTTP request | `object` - Request config |
-| `write` | Write file | `object` - File path + content |
+| `exec-tty` | Execute with TTY | `string[]` - Command + args |
+| `stdin` | Write to process stdin | `string[2]` - `[process_name, stdin_data]` |
+| `scroll-switch` | Switch to another scroll | `string` - OCI artifact name |
+| `rcon` | RCON command (plugin) | `string` - Command to send |
+| `command` | Run another command (deprecated) | `string` - Command name |
+
+**Note:** Additional modes can be provided by plugins (e.g., `rcon_web_rust`).
 
 ### Dependencies
 
