@@ -310,14 +310,6 @@ Druid uses **Nix** for dependency management. This provides:
 - ✅ **Declarative** - Dependencies defined in scroll.yaml
 - ✅ **Massive package library** - 80,000+ packages from nixpkgs
 
-**Common dependencies:**
-
-- `jdk8`, `jdk11`, `jdk17`, `jdk21` - Java runtimes
-- `nodejs`, `python3` - Language runtimes
-- `wget`, `curl` - Download tools
-- `git` - Version control
-- `cacert` - SSL certificates
-
 **Any package from [nixpkgs](https://search.nixos.org/packages)** can be used as a dependency.
 
 ## Creating Your Own Scroll
@@ -513,41 +505,6 @@ Druid:
 ### Available Packages
 
 Druid has access to **80,000+ packages** from [nixpkgs](https://search.nixos.org/packages).
-
-**Common examples:**
-
-```yaml
-dependencies:
-  # Java (multiple versions can coexist!)
-  - jdk8
-  - jdk11
-  - jdk17
-  - jdk21
-  
-  # Languages
-  - nodejs
-  - python3
-  - go
-  - rustc
-  
-  # Databases
-  - postgresql
-  - mysql
-  - redis
-  - mongodb
-  
-  # Tools
-  - wget
-  - curl
-  - git
-  - unzip
-  - cacert
-  
-  # Game-specific
-  - steamcmd
-  - wine
-  - dotnet-sdk
-```
 
 ### Finding Packages
 
