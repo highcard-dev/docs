@@ -1,5 +1,5 @@
 ---
-sidebar_position: 4
+sidebar_position: 2
 title: ColdStarter System
 description: Understand how Druid's ColdStarter system enables wake-on-demand automation and 70-90% cost savings
 ---
