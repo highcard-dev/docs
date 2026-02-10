@@ -1,0 +1,1 @@
+{"title":"Body","body":{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["command"],"properties":{"command":{"type":"string","description":"The command ID to execute","example":"start"},"sync":{"type":"boolean","default":false,"description":"Whether to run synchronously (wait for completion)"}},"title":"StartCommandRequest"}}}}}

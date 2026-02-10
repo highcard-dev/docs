@@ -1,0 +1,1 @@
+{"responses":{"200":{"description":"Command completed synchronously"},"201":{"description":"Command started asynchronously"},"400":{"description":"Bad request"},"500":{"description":"Internal server error"}}}

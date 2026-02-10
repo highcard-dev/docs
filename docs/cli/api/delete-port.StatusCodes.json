@@ -1,0 +1,1 @@
+{"responses":{"204":{"description":"Port removed successfully"},"404":{"description":"Port not found","content":{"application/json":{"schema":{"type":"object","required":["status","error"],"properties":{"status":{"type":"string","example":"error"},"error":{"type":"string","description":"Error message"}},"title":"ErrorResponse"}}}}}}

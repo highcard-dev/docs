@@ -8,6 +8,9 @@
 .docusaurus
 .cache-loader
 
+# OpenAPI spec (fetched from druid-cli master)
+openapi.yaml
+
 # Misc
 .DS_Store
 .env.local

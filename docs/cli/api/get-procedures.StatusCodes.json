@@ -1,0 +1,1 @@
+{"responses":{"200":{"description":"Map of procedure statuses","content":{"application/json":{"schema":{"type":"object","additionalProperties":{"type":"object"}}}}}}}
