@@ -1,5 +1,5 @@
 {
-  "name": "druid-docs",
+  "name": "docs",
   "compatibility_date": "2026-02-10",
   "assets": {
     "directory": "./build"
