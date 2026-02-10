@@ -160,7 +160,7 @@ import { getData } from 'my:api/fetch';
 const data = await getData('/api/status');
 ```
 
-See [package documentation](./packages/component.md) for full API reference.
+See [package documentation](./packages.md) for full API reference.
 
 ## Multi-Language Support
 
@@ -177,6 +177,6 @@ See [package documentation](./packages/component.md) for full API reference.
 
 ## Learn More
 
-- [NPM Packages](./packages/component.md) - API reference
+- [NPM Packages](./packages.md) - API reference
 - [Examples](https://github.com/highcard-dev/druid-ui/tree/main/examples)
 - [Source Code](https://github.com/highcard-dev/druid-ui)
