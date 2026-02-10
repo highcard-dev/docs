@@ -482,7 +482,7 @@ Compare to:
 
 - **Initial render**: ~5-20ms
 - **Rerender**: ~2-10ms (full tree)
-- **Event handling**: <1ms
+- **Event handling**: &lt;1ms
 
 Fast enough for dashboards and UIs, not suitable for 60fps games.
 
@@ -655,10 +655,9 @@ export const component = createComponent(() => {
 
 ## Next Steps
 
-- [Component API Reference](./api-reference.md)
-- [Extension Development Guide](./extensions.md)
-- [Deployment Guide](./deployment.md)
 - [Examples Repository](https://github.com/highcard-dev/druid-ui/tree/main/examples)
+- [DruidUI Source Code](https://github.com/highcard-dev/druid-ui)
+- [WebAssembly Component Model](https://component-model.bytecodealliance.org/)
 
 ## FAQ
 
