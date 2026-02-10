@@ -1,115 +1,56 @@
 ---
 sidebar_position: 1
-title: DruidUI Introduction
-description: Learn about DruidUI, Druid's WebAssembly-based framework for building sandboxed user interfaces
+title: DruidUI
+description: WebAssembly framework for sandboxed UIs
 ---
 
-# DruidUI - WebAssembly SPA Framework
+# DruidUI
 
-DruidUI is a lightweight React-like framework that compiles to **WebAssembly**. It enables you to build custom user interfaces for your Druid scrolls (game servers) in a **fully sandboxed environment**.
+DruidUI is a React-like framework that compiles to **WebAssembly** for building sandboxed user interfaces. Use it when you need to run untrusted UI code safely.
 
-## What is DruidUI?
+## Why WebAssembly?
 
-DruidUI is a frontend framework specifically designed for scenarios where you need to support **user-generated content and UIs** on your platform. Unlike traditional frameworks that run JavaScript directly, DruidUI components are compiled to WebAssembly, providing complete isolation and security.
+Traditional approaches can't provide true sandboxing:
+- **JavaScript** - Can access all browser APIs
+- **iframes** - Limited state sharing, poor UX
 
-### Key Features
-
-✅ **React-like Components** - Familiar JSX/TSX syntax  
-✅ **WebAssembly Sandbox** - Complete code isolation  
-✅ **Multi-language** - JavaScript/TypeScript ready, Rust/C++ coming soon  
-✅ **Hot Reloading** - Fast development workflow with Vite  
-✅ **Extension System** - Extend functionality with custom APIs  
-✅ **Component Model** - Based on WebAssembly Component Model standard
-
-## Why DruidUI?
-
-### The Problem
-
-When building platforms that allow users to create custom UIs (like game server dashboards), you face a security dilemma:
-
-- **JavaScript**: Fast, but can't be sandboxed properly
-- **iframes**: Limited, can't share state with host
-- **eval()**: Dangerous, full system access
-
-### The Solution
-
-**WebAssembly provides true sandboxing:**
-
-```
-User Code → Compile to WASM → Run in isolated environment
-                                    ↓
-                        Only access explicitly granted functions
-```
-
-DruidUI encapsulates all execution fully. Only functions explicitly forwarded to the WASM target can be executed.
-
-### Use Cases
-
-Perfect for:
-
-- **Custom Server Dashboards** - Players build their own UI for your game server
-- **Plugin Marketplaces** - Third-party UIs without security risks
-- **User-Generated Content** - Safe execution of community creations
-- **Multi-tenant Platforms** - Isolated UIs per tenant/customer
+**WebAssembly** provides complete isolation - code can only access explicitly granted functions.
 
 ## Quick Start
 
-### Installation
-
-Create a new DruidUI project:
-
 ```bash
-npx -p druid-ui create-druid-ui my-dashboard
-cd my-dashboard
+npx create-druid-ui my-app
+cd my-app
 npm install
 npm run dev
 ```
 
-This scaffolds:
-- Pre-configured `tsconfig.json`
-- Vite development server with hot reload
-- Empty `src/index.tsx` entry point
-- Build pipeline to WASM
-
-### Your First Component
-
-Create `src/index.tsx`:
+### Hello World
 
 ```tsx
-import { createComponent, Context } from 'druid-ui';
+import { createComponent, Context } from '@druid-ui/component';
 
-let clickCount = 0;
+let count = 0;
 
 export const component = createComponent((ctx: Context) => {
   return (
     <main>
       <h1>Hello Druid!</h1>
-      <p>Path: {ctx.path}</p>
-      
-      <button onClick={() => { clickCount++; }}>
-        Click Me
+      <button onClick={() => { count++; }}>
+        Clicked {count} times
       </button>
-      
-      <p>Clicks: {clickCount}</p>
     </main>
   );
 });
 ```
 
-### Build for Production
+### Build & Deploy
 
 ```bash
-npm run build
-# Output: dist/component.wasm
-```
+# Build to WASM
+npm run build  # → dist/component.wasm
 
-### Deploy to Druid
-
-```bash
-# Copy to your scroll's ui directory
-cp dist/component.wasm scrolls/my-game/ui/dashboard.wasm
-
-# Reference in scroll.yaml
+# Add to scroll
 ui:
   - name: dashboard
     path: ui/dashboard.wasm
@@ -118,502 +59,124 @@ ui:
 
 ## Core Concepts
 
-### Components
+### Functional Components
 
-DruidUI uses a **functional component model** inspired by [React](https://react.dev) and [Mithril.js](https://mithril.js.org/).
+Similar to [React](https://react.dev) and [Mithril.js](https://mithril.js.org/):
 
-**Similarities to Mithril.js:**
-- Simple, functional component architecture
-- Every event triggers a rerender (no complex diffing)
-- Lightweight and easy to reason about
-- Virtual DOM with Snabbdom (Mithril uses similar approach)
-- No magic, explicit control flow
-
-**Key difference:** DruidUI compiles to WebAssembly for sandboxing, while Mithril runs as plain JavaScript.
-
-Example component:
+- JSX/TSX syntax
+- Every event triggers full rerender (no complex diffing)
+- Module-level state (no hooks)
 
 ```tsx
-const MyComponent = ({ title, count }: Props) => (
-  <div>
-    <h2>{title}</h2>
-    <p>Count: {count}</p>
-  </div>
-);
+let items = ['todo 1', 'todo 2'];
 
-export const component = createComponent((ctx: Context) => {
+export const component = createComponent(() => {
   return (
-    <div>
-      <MyComponent title="Hello" count={42} />
-    </div>
+    <ul>
+      {items.map(item => <li>{item}</li>)}
+    </ul>
   );
 });
 ```
-
-### Rendering Model
-
-Unlike React's complex virtual DOM diffing, DruidUI is simpler:
-
-**Every event listener execution triggers a full rerender.**
-
-```tsx
-let state = 0;
-
-<button onClick={() => {
-  state++;  // Rerender happens automatically
-}}>
-  Increment
-</button>
-```
-
-This is less efficient than React but **much simpler** for multi-language support and reasoning about state.
 
 ### Context
 
-Every component receives a `Context` object:
+Access route data via context:
 
 ```tsx
-interface Context {
-  path: string;        // Current route path
-  params: Record<string, string>;  // URL parameters
-  // ... extension data
-}
-```
-
-## Development Workflow
-
-### Sandbox Mode (Production)
-
-Components run in full WebAssembly sandbox:
-
-```bash
-npm run build           # Compile to WASM
-npm run preview         # Test sandboxed version
-```
-
-**Pros:**
-- ✅ Production-ready
-- ✅ Secure
-- ✅ Isolated
-
-**Cons:**
-- ❌ Slower build times
-- ❌ Higher resource usage
-
-### Raw Mode (Development)
-
-Disable WASM for faster iteration:
-
-```tsx
-// In your HTML
-<druid-ui no-sandbox src="./src/index.tsx"></druid-ui>
-```
-
-Or programmatically:
-
-```tsx
-druidElement.sandbox = false;
-```
-
-**Pros:**
-- ✅ Instant hot reload
-- ✅ Normal debugging tools
-- ✅ Fast iteration
-
-**Cons:**
-- ❌ Not sandboxed
-- ❌ Dev-only
-
-### Vite Plugin
-
-DruidUI includes a Vite plugin for both modes:
-
-```ts
-// vite.config.ts
-import { defineConfig } from 'vite';
-import druidUI from 'druid-ui/dev';
-
-export default defineConfig({
-  plugins: [druidUI()],
-});
-```
-
-Features:
-- Hot module replacement
-- TypeScript support
-- Automatic WASM builds
-- Source maps
-
-## Architecture
-
-### Component Lifecycle
-
-```
-1. init() called → Returns root JSX node ID
-           ↓
-2. Node tree built via d() calls
-           ↓
-3. Snabbdom renders to Shadow DOM
-           ↓
-4. Event listener attached
-           ↓
-5. User interaction → emit() called
-           ↓
-6. Event handler runs
-           ↓
-7. rerender() → Back to step 1
-```
-
-### Host ↔ WASM Interface
-
-**Host provides to WASM:**
-
-```ts
-d(element: string, props: object, children: string[]): string
-// Creates DOM node, returns node ID
-
-log(message: string)
-// Console logging
-
-rerender()
-// Trigger full component rerender
-```
-
-**WASM provides to Host:**
-
-```ts
-init(): string
-// Entry point, returns root node ID
-
-emit(fnId: string, event: Event)
-// Execute event listener
-
-asyncCallback(fnId: string, value: string)
-// Support async operations (temporary until WASI Preview 3)
-```
-
-### Shadow DOM Encapsulation
-
-Each DruidUI component renders in a **Shadow DOM**:
-
-```
-<druid-ui>
-  #shadow-root
-    <style>/* Scoped styles */</style>
-    <main>/* Your component */</main>
-```
-
-Benefits:
-- ✅ Style isolation (no CSS leaks)
-- ✅ Clean DOM tree
-- ✅ Web Component standard
-
-## Multi-Language Support
-
-### Currently Supported
-
-**JavaScript/TypeScript** ✅
-
-- Full JSX/TSX support
-- Wrapper functions for nice DX
-- Type definitions included
-
-### Coming Soon
-
-**Rust** 🚧
-
-```rust
-// Future syntax (not yet available)
-use druid_ui::*;
-
-#[component]
-fn MyComponent() -> Element {
-    html! {
-        <div>
-            <h1>{"Hello from Rust!"}</h1>
-        </div>
-    }
-}
-```
-
-**C/C++** 🚧
-
-```cpp
-// Future syntax (not yet available)
-#include <druid-ui.h>
-
-Element MyComponent() {
-    return d("div", {}, {
-        d("h1", {}, {"Hello from C++"})
-    });
-}
-```
-
-### Why Not Yet?
-
-The WebAssembly Component Model is still maturing. Missing features:
-
-- [Concurrency support](https://component-model.bytecodealliance.org/building-a-simple-component.html)
-- [Client callbacks](https://github.com/WebAssembly/component-model/issues/223)
-- [Recursive types](https://github.com/WebAssembly/component-model/issues/56)
-- Async/await (WASI Preview 3)
-
-We're waiting for these to stabilize before investing in multi-language SDKs.
-
-## Extension System
-
-By default, DruidUI only exports minimal functions for security. The **extension system** lets you add custom APIs safely.
-
-### Creating Extensions
-
-1. **Define WIT interface:**
-
-```wit
-// extensions.wit
-package druid:ui;
-
-interface extension {
-  fetch-data: func(url: string) -> string;
-  save-config: func(key: string, value: string);
-}
-```
-
-2. **Implement in host:**
-
-```js
-druidElement.extensionObject = {
-  "druid:ui/extension": {
-    fetchData: async (url) => {
-      const res = await fetch(url);
-      return await res.text();
-    },
-    saveConfig: (key, value) => {
-      localStorage.setItem(key, value);
-    },
-  },
-};
-```
-
-3. **Use in component:**
-
-```tsx
-import { fetchData, saveConfig } from 'druid:ui/extension';
-
-export const component = createComponent((ctx) => {
-  const [data, setData] = useState('');
-  
-  const loadData = async () => {
-    const result = await fetchData('/api/status');
-    setData(result);
-  };
-  
+export const component = createComponent((ctx: Context) => {
   return (
     <div>
-      <button onClick={loadData}>Load Data</button>
-      <pre>{data}</pre>
+      <p>Path: {ctx.path}</p>
+      <p>User ID: {ctx.params.userId}</p>
     </div>
   );
 });
 ```
 
-### Async Extensions (Current Workaround)
+### Shadow DOM
 
-Since WASI Preview 3 isn't ready, async functions need a workaround:
+Each component renders in isolated Shadow DOM - styles can't leak in/out.
 
-```js
-// Host side
-druidElement.extensionObject = {
-  "druid:ui/extension": {
-    asyncFetchData: (url, callbackId) => {
-      fetch(url)
-        .then(res => res.text())
-        .then(data => {
-          druidElement.asyncCallback(callbackId, data);
-        });
-    },
-  },
-};
+## Development Workflow
+
+### Raw Mode (Fast)
+
+Develop without WASM overhead:
+
+```html
+<druid-ui no-sandbox src="/src/index.tsx"></druid-ui>
 ```
 
-```tsx
-// Component side
-import { asyncFetchData } from 'druid:ui/extension';
+- Instant hot reload
+- Normal browser debugging
+- Not sandboxed (dev only!)
 
-const loadData = () => {
-  const callbackId = generateCallbackId();
-  asyncFetchData('/api/status', callbackId);
-  // Result arrives via asyncCallback
-};
-```
+### Sandbox Mode (Production)
 
-**Note:** This will be removed once WASI Preview 3 supports async natively.
-
-## CLI Tools
-
-DruidUI provides two helpful commands:
-
-### Build Component
+Full WASM sandboxing:
 
 ```bash
-npx build-ui <file>
-```
-
-Compiles a TypeScript/JSX file to WebAssembly component.
-
-### Generate Types
-
-```bash
-npx gen-types
-```
-
-Generates TypeScript definitions for your extension WIT files.
-
-```bash
-# Example workflow
-echo "interface my-api { ... }" > extensions.wit
-npx gen-types
-# → types/extensions.d.ts created
-```
-
-## Performance
-
-### Bundle Size
-
-Typical DruidUI component:
-
-- **Compiled WASM**: 50-200 KB
-- **Runtime overhead**: ~10 KB (Snabbdom)
-- **Total**: ~60-210 KB
-
-Compare to:
-- React SPA: 200-500 KB+ (before your code)
-- Vue SPA: 100-300 KB+
-
-### Execution Speed
-
-- **Initial render**: ~5-20ms
-- **Rerender**: ~2-10ms (full tree)
-- **Event handling**: &lt;1ms
-
-Fast enough for dashboards and UIs, not suitable for 60fps games.
-
-### Memory
-
-- **Idle**: ~2-5 MB per component
-- **Active**: ~10-20 MB with large DOMs
-
-WebAssembly adds ~2MB overhead vs native JS.
-
-## Best Practices
-
-### 1. Keep State Simple
-
-```tsx
-// ✅ Good: Simple state
-let count = 0;
-let items = ['a', 'b', 'c'];
-
-// ❌ Avoid: Complex nested objects
-let state = { user: { profile: { settings: { ... } } } };
-```
-
-### 2. Minimize Rerenders
-
-Remember: every event triggers full rerender.
-
-```tsx
-// ✅ Good: Debounce expensive operations
-let search Query = '';
-<input onChange={debounce((e) => {
-  searchQuery = e.target.value;
-}, 300)} />
-
-// ❌ Avoid: Real-time without debounce
-<input onChange={(e) => {
-  performExpensiveSearch(e.target.value);
-}} />
-```
-
-### 3. Use Extensions Wisely
-
-```tsx
-// ✅ Good: Expose specific APIs
-interface Extension {
-  fetchServerStatus(): Promise<Status>;
-  restartServer(): Promise<void>;
-}
-
-// ❌ Avoid: Generic eval-like APIs
-interface BadExtension {
-  runCode(code: string): any;  // Defeats sandboxing!
-}
-```
-
-### 4. Test in Sandbox Mode
-
-```bash
-# Always test production build
 npm run build
 npm run preview
-
-# Don't ship only-tested in raw mode
 ```
 
-## Examples
+- True isolation
+- Production-ready
+- Slower iteration
 
-DruidUI includes several example projects:
+## Extension System
 
-### [Simple Example](https://github.com/highcard-dev/druid-ui/tree/main/examples/simple)
-Basic component with sandbox mode + hot reload.
+By default, WASM can only call `d()`, `log()`, and `rerender()`. Add custom APIs via extensions:
 
-### [Simple Extended](https://github.com/highcard-dev/druid-ui/tree/main/examples/simple-extended)
-Component with custom extension APIs.
+**1. Define interface (WIT):**
 
-### [No-Sandbox Development](https://github.com/highcard-dev/druid-ui/tree/main/examples/simple-no-sandbox)
-Fast iteration without WASM overhead.
+```wit
+package my:api;
 
-### [Extended No-Sandbox](https://github.com/highcard-dev/druid-ui/tree/main/examples/simple-extended-no-sandbox)
-Extensions in raw development mode.
+interface fetch {
+  get-data: func(url: string) -> string;
+}
+```
+
+**2. Implement in host:**
+
+```js
+druidElement.extensionObject = {
+  'my:api/fetch': {
+    getData: async (url) => {
+      const res = await fetch(url);
+      return res.text();
+    }
+  }
+};
+```
+
+**3. Use in component:**
+
+```tsx
+import { getData } from 'my:api/fetch';
+
+const data = await getData('/api/status');
+```
+
+See [package documentation](./packages/component.md) for full API reference.
+
+## Multi-Language Support
+
+**Current:** JavaScript/TypeScript ✅
+
+**Planned:** Rust, C++ (waiting for WebAssembly Component Model maturity)
 
 ## Limitations
 
-### Current Limitations
+- No async/await yet (use callback workaround)
+- Full rerenders on every event (less efficient than React)
+- JavaScript only for now
+- No SSR
 
-1. **No Async/Await** - Workaround required until WASI Preview 3
-2. **Full Rerenders** - Not as efficient as React's diffing
-3. **JavaScript Only** - Rust/C++ support pending Component Model maturity
-4. **No Concurrent Rendering** - Single-threaded execution
-5. **Limited Browser APIs** - Only what's explicitly exposed
+## Learn More
 
-### Future Improvements
-
-Planned once WebAssembly standards mature:
-
-- Native async/await support
-- Rust/C++ SDKs
-- Concurrent rendering
-- Streaming SSR
-- Better debugging tools
-
-## Next Steps
-
-- [Examples Repository](https://github.com/highcard-dev/druid-ui/tree/main/examples)
-- [DruidUI Source Code](https://github.com/highcard-dev/druid-ui)
-- [WebAssembly Component Model](https://component-model.bytecodealliance.org/)
-
-## FAQ
-
-**Q: Why not just use iframes?**  
-A: iframes can't share state efficiently with the host and have limited styling options. WASM provides true sandboxing with full programmatic control.
-
-**Q: Can I use npm packages?**  
-A: Yes, but they must be compatible with WebAssembly. Pure JS libraries work fine. Browser APIs need extensions.
-
-**Q: How do I debug WASM components?**  
-A: Use raw mode (`no-sandbox`) during development with normal browser dev tools. Test in sandbox mode before production.
-
-**Q: Can I style components?**  
-A: Yes! Use inline styles, `<style>` tags, or CSS-in-JS. Styles are scoped to the Shadow DOM.
-
-**Q: What about SSR?**  
-A: Not currently supported. DruidUI is client-side only. SSR may come in future versions.
+- [NPM Packages](./packages/component.md) - API reference
+- [Examples](https://github.com/highcard-dev/druid-ui/tree/main/examples)
+- [Source Code](https://github.com/highcard-dev/druid-ui)
