@@ -11,8 +11,7 @@ This is the documentation for [druid-cli](https://github.com/highcard-dev/druid-
 It is recommended, but not manditory to use the druid-cli inside a container, to ensure all the coditions are meet for the process.
 Simpler setups should also work without containers.
 
-Processes and process structures **are called scrolls**.
-A scroll is an OCI Artifact, wich you can store in any OCI registry, like Dockerhub.
+Processes are managed via **scrolls** - OCI artifacts stored in registries. See [Scroll System](../scrolls/introduction.md) for details.
 
 ## Architecture
 
@@ -26,7 +25,7 @@ A scroll is an OCI Artifact, wich you can store in any OCI registry, like Docker
     F[Start Process and Log Watcher] --> G[Start Webserver]
 ```
 
-A command can depend on the success of a different command. You can see more in the [scroll section](/cli/scroll).
+Commands can depend on other commands. See [Scroll System](../scrolls/introduction.md) for details.
 
 ## Installation
 
