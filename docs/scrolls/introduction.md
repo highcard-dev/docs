@@ -300,7 +300,14 @@ commands:
 
 ### Dependencies
 
-Built-in system dependencies:
+Druid uses **Nix** for dependency management. This provides:
+
+- ✅ **Reproducible environments** - Same dependencies everywhere
+- ✅ **Isolation** - No conflicts between scrolls
+- ✅ **Declarative** - Dependencies defined in scroll.yaml
+- ✅ **Massive package library** - 80,000+ packages from nixpkgs
+
+**Common dependencies:**
 
 - `jdk8`, `jdk11`, `jdk17`, `jdk21` - Java runtimes
 - `nodejs`, `python3` - Language runtimes
@@ -308,7 +315,7 @@ Built-in system dependencies:
 - `git` - Version control
 - `cacert` - SSL certificates
 
-Custom dependencies can be added per-scroll.
+**Any package from [nixpkgs](https://search.nixos.org/packages)** can be used as a dependency.
 
 ## Creating Your Own Scroll
 
@@ -475,8 +482,220 @@ commands:
           - /data/postgres
 ```
 
-## Learn More
+## Nix Integration
 
+Druid leverages **Nix** for dependency management, providing reproducible, isolated environments for every scroll.
+
+### Why Nix?
+
+**The Problem:** Traditional package managers (apt, yum) have issues:
+- ❌ Global installation causes conflicts
+- ❌ Different versions can't coexist
+- ❌ Hard to reproduce exact environments
+- ❌ System updates can break applications
+
+**The Nix Solution:**
+- ✅ **Isolated environments** - Each scroll gets its own dependency closure
+- ✅ **Reproducible** - Same inputs = same outputs, always
+- ✅ **Atomic upgrades** - Rollback on failure
+- ✅ **No dependency hell** - Multiple versions coexist
+- ✅ **Declarative** - Dependencies defined in scroll.yaml
+
+### How It Works
+
+When you declare dependencies in `scroll.yaml`:
+
+```yaml
+commands:
+  start:
+    dependencies: [jdk21, wget, git]
+    procedures:
+      - mode: exec
+        data: [java, -jar, server.jar]
+```
+
+Druid:
+1. **Resolves** dependencies from nixpkgs
+2. **Downloads** exact versions (or fetches from cache)
+3. **Builds** isolated environment with only those dependencies
+4. **Executes** commands in that environment
+
+**No pollution of host system.** Each scroll is isolated.
+
+### Available Packages
+
+Druid has access to **80,000+ packages** from [nixpkgs](https://search.nixos.org/packages).
+
+**Common examples:**
+
+```yaml
+dependencies:
+  # Java (multiple versions can coexist!)
+  - jdk8
+  - jdk11
+  - jdk17
+  - jdk21
+  
+  # Languages
+  - nodejs
+  - python3
+  - go
+  - rustc
+  
+  # Databases
+  - postgresql
+  - mysql
+  - redis
+  - mongodb
+  
+  # Tools
+  - wget
+  - curl
+  - git
+  - unzip
+  - cacert
+  
+  # Game-specific
+  - steamcmd
+  - wine
+  - dotnet-sdk
+```
+
+### Finding Packages
+
+Search for packages at: https://search.nixos.org/packages
+
+**Example:** Need Mono for a C# game server?
+
+1. Search "mono" on nixpkgs
+2. Find package name: `mono`
+3. Add to scroll.yaml:
+
+```yaml
+dependencies: [mono]
+```
+
+### Nix Store
+
+Dependencies are stored in the **Nix store** (`/nix/store/`):
+
+```
+/nix/store/
+├── abc123-jdk-21.0.1/
+│   ├── bin/java
+│   └── lib/...
+├── def456-wget-1.21.3/
+│   └── bin/wget
+└── ghi789-nodejs-20.11.0/
+    ├── bin/node
+    └── lib/...
+```
+
+**Benefits:**
+- Multiple versions installed simultaneously
+- Shared across scrolls (space efficient)
+- Immutable (can't be modified after build)
+- Atomic (all-or-nothing installation)
+
+### Dependency Caching
+
+Druid caches Nix packages:
+
+- **First deployment:** Downloads dependencies (~10-60s)
+- **Subsequent deployments:** Instant (cached)
+- **Shared cache:** Same dependencies across scrolls use cache
+
+**This is why Druid is fast** - dependencies are downloaded once, reused everywhere.
+
+### Advanced: Custom Nix Expressions
+
+For complex dependencies, use custom Nix expressions:
+
+```yaml
+commands:
+  start:
+    dependencies:
+      - jdk21
+      - name: custom-lib
+        nix: |
+          pkgs.stdenv.mkDerivation {
+            name = "custom-lib";
+            src = fetchurl {
+              url = "https://example.com/lib.tar.gz";
+              sha256 = "abc...";
+            };
+            installPhase = ''
+              mkdir -p $out/lib
+              cp -r * $out/lib/
+            '';
+          }
+```
+
+### Reproducibility Guarantee
+
+**Same scroll.yaml = Same environment**, even years later:
+
+- Nix pins exact package versions
+- nixpkgs is versioned and cached
+- Binary cache ensures identical builds
+
+**This is crucial for:**
+- Disaster recovery
+- Scaling to multiple nodes
+- Long-term maintenance
+
+### Comparison: Traditional vs Nix
+
+| Traditional Hosting | Druid with Nix |
+|---------------------|----------------|
+| Install Java globally | Nix provides jdk21 per-scroll |
+| `apt install openjdk-21-jre` | `dependencies: [jdk21]` |
+| Conflicts if multiple versions needed | Multiple versions coexist |
+| Breaks on system update | Isolated, reproducible |
+| Manual setup per server | Declarative, automatic |
+
+### Example: Multi-Version Java
+
+Run Minecraft 1.12 (Java 8) and 1.21 (Java 21) **simultaneously**:
+
+**Scroll 1: Minecraft 1.12**
+```yaml
+commands:
+  start:
+    dependencies: [jdk8]
+    procedures:
+      - mode: exec
+        data: [java, -jar, minecraft-1.12.jar]
+```
+
+**Scroll 2: Minecraft 1.21**
+```yaml
+commands:
+  start:
+    dependencies: [jdk21]
+    procedures:
+      - mode: exec
+        data: [java, -jar, minecraft-1.21.jar]
+```
+
+**No conflicts.** Each gets its own Java version.
+
+### Why This Matters
+
+Nix is **foundational to Druid's architecture**:
+
+1. **ColdStarter wake-on-demand** - Fast startup because dependencies are pre-cached
+2. **Multi-tenancy** - Isolated environments prevent conflicts
+3. **Reproducibility** - Same scroll works everywhere
+4. **Scalability** - Scrolls can deploy to any Druid node
+5. **Reliability** - Immutable packages can't be corrupted
+
+**Without Nix, Druid's model wouldn't work.**
+
+### Learn More
+
+- [Nix Package Manager](https://nixos.org)
+- [Search nixpkgs](https://search.nixos.org/packages)
 - [Community Scrolls Repository](https://github.com/highcard-dev/scrolls) - Browse and contribute scrolls
 - [Druid CLI Repository](https://github.com/highcard-dev/druid-cli) - Core CLI tool
 
