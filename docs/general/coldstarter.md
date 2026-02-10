@@ -70,24 +70,11 @@ When your server goes idle (no players for X minutes):
 
 ### 2. Packet Handler
 
-ColdStarter uses **Lua packet handlers** to understand game-specific connection protocols:
+ColdStarter uses **Lua packet handlers** to understand game-specific connection protocols.
 
-```lua
--- Example: Minecraft status packet handler
-function handle(ctx, data)
-    if isStatusRequest(data) then
-        -- Send fake "server online" response
-        sendData(generateStatusResponse({
-            version = "§2▶ Starting...",
-            players = { online = 0, max = 20 },
-            description = "Waking up... 30s"
-        }))
-    elseif isLoginAttempt(data) then
-        -- Trigger server wake
-        finish()
-    end
-end
-```
+**Example**: [Minecraft packet handler (minecraft.lua)](https://github.com/highcard-dev/scrolls/blob/main/scrolls/minecraft/papermc/1.21.7/packet_handler/minecraft.lua)
+
+The handler intercepts incoming packets, responds with server status, and triggers wake when players connect.
 
 Each game has a custom packet handler:
 - **Minecraft**: Responds to status + login packets
@@ -161,32 +148,6 @@ coldstarter:
 - **snapshot_mode**: `auto` | `manual` | `none`
 - **custom_handler**: Path to custom Lua packet handler
 
-## Cost Optimization Tips
-
-### 1. Enable Snapshots
-
-Faster wake times = better player experience:
-```yaml
-coldstarter:
-  snapshot_mode: "auto"
-  snapshot_schedule: "0 4 * * *"  # Daily at 4 AM
-```
-
-### 2. Tune Idle Timeout
-
-Balance responsiveness vs cost:
-- **5 minutes**: Best for active servers (minimal downtime)
-- **15 minutes**: Good default for most hobby servers
-- **30 minutes**: Maximum savings for rarely-used servers
-
-### 3. Monitor Usage
-
-Check your actual playtime:
-```bash
-druid metrics
-# Shows: active hours, sleep hours, cost breakdown
-```
-
 ## Technical Details
 
 ### Packet Handler API
@@ -247,58 +208,6 @@ end
 
 Place in `scrolls/<game>/packet_handler/custom_game.lua`
 
-## Performance
-
-### Resource Usage
-
-| State | CPU | RAM | Cost/hour |
-|-------|-----|-----|-----------|
-| **Active** (playing) | 100% | 2-8GB | $0.014 |
-| **Sleeping** (ColdStarter) | &lt;1% | 10-50MB | ~$0 |
-| **Waking** (starting up) | 50-100% | 2-8GB | $0.014 |
-
-### Wake Times
-
-| Game | Cold Start | With Snapshot |
-|------|-----------|---------------|
-| Minecraft (small world) | 30-45s | 10-15s |
-| Minecraft (large world) | 60-90s | 20-30s |
-| Rust | 40-60s | 15-25s |
-| Palworld | 30-50s | 10-20s |
-| ARK | 60-120s | 20-40s |
-
-## Troubleshooting
-
-### Server Won't Wake
-
-**Symptoms**: Players connect but server stays asleep
-
-**Solutions**:
-1. Check packet handler logs: `druid logs coldstarter`
-2. Verify port configuration matches game protocol
-3. Test with direct connect (bypass DNS/proxy)
-4. Check firewall rules allow incoming traffic
-
-### Slow Wake Times
-
-**Symptoms**: Takes &gt;60s to start
-
-**Solutions**:
-1. Enable snapshots for faster restore
-2. Reduce world/mod size
-3. Check available CPU/RAM resources
-4. Consider pre-warming (disable auto-sleep during peak hours)
-
-### "Server Offline" in Browser
-
-**Symptoms**: Server doesn't appear when sleeping
-
-**Solutions**:
-1. Verify `sleep_handler` is set in scroll.yaml
-2. Check ColdStarter process is running
-3. Test packet handler directly
-4. Review game-specific protocol requirements
-
 ## FAQ
 
 **Q: Can players still see my server when it's asleep?**  
@@ -312,8 +221,3 @@ A: Yes, ColdStarter is transparent to the game server. Mods/plugins work normall
 
 **Q: Can I disable ColdStarter?**  
 A: Yes, set `coldstarter.enabled: false` in scroll.yaml or keep the server always-on.
-
-**Q: How much does it cost when sleeping?**  
-A: Nearly zero (~$0.001/hour for the listener process). The container is fully stopped.
-
-##
