@@ -254,7 +254,7 @@ Place in `scrolls/<game>/packet_handler/custom_game.lua`
 | State | CPU | RAM | Cost/hour |
 |-------|-----|-----|-----------|
 | **Active** (playing) | 100% | 2-8GB | $0.014 |
-| **Sleeping** (ColdStarter) | <1% | 10-50MB | ~$0 |
+| **Sleeping** (ColdStarter) | &lt;1% | 10-50MB | ~$0 |
 | **Waking** (starting up) | 50-100% | 2-8GB | $0.014 |
 
 ### Wake Times
@@ -281,7 +281,7 @@ Place in `scrolls/<game>/packet_handler/custom_game.lua`
 
 ### Slow Wake Times
 
-**Symptoms**: Takes >60s to start
+**Symptoms**: Takes &gt;60s to start
 
 **Solutions**:
 1. Enable snapshots for faster restore
