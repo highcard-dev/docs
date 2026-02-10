@@ -319,18 +319,13 @@ Druid uses **Nix** for dependency management. This provides:
 
 ## Creating Your Own Scroll
 
-### Step 1: Fork the Repository
+### Find Examples
 
-```bash
-git clone https://github.com/highcard-dev/scrolls
-cd scrolls
+Browse the [scrolls repository](https://github.com/highcard-dev/scrolls) for examples of existing scrolls. The structure and patterns used there will help you create your own.
 
-# Create your scroll directory
-mkdir -p scrolls/custom/my-game/1.0.0
-cd scrolls/custom/my-game/1.0.0
-```
+### Step 1: Create scroll.yaml
 
-### Step 2: Create scroll.yaml
+Create a directory for your scroll and define `scroll.yaml`:
 
 ```yaml
 name: artifacts.druid.gg/my-org/scroll-my-game
@@ -380,7 +375,7 @@ commands:
           - game-server.tar.gz
 ```
 
-### Step 3: Add Start Script
+### Step 2: Add Start Script
 
 ```bash
 #!/bin/bash
@@ -392,31 +387,21 @@ commands:
   --world-name=MyWorld
 ```
 
-### Step 4: Test Locally
+### Step 3: Validate and Test
 
 ```bash
-# Build scroll
-druid scroll build .
+# Validate scroll syntax
+druid scroll validate
 
-# Test deployment
-druid scroll deploy ./scroll.yaml
+# Start the server with your scroll
+druid serve
 
-# Start server
-druid start
+# Or run a specific command
+druid run install
+druid run launch
 ```
 
-### Step 5: Publish to Registry
-
-```bash
-# Tag version
-git tag v1.0.0
-
-# Push to GitHub
-git push origin main --tags
-
-# Registry auto-builds on tag push
-# Artifact available at: artifacts.druid.gg/my-org/scroll-my-game:1.0.0
-```
+The scroll will be loaded from the current directory, and Druid will handle dependency resolution, process execution, and monitoring.
 
 ## Examples with Custom Command Names
 
