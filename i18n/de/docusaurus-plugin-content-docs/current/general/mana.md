@@ -12,18 +12,21 @@ import eatingMana from "/static/img/eating.png"
 
 ---
 
-- **Wöchentliche Drops:** Erhalte alle 7 Tage bis zu 1000 Mana.
+- **Wöchentliche Drops:** Schalte bis zu 180 Mana alle 7 Tage frei, indem du Perks erfüllst.
 - **Automatische Benachrichtigung:** Eine E-Mail informiert dich über neue Drops.
+- **Perks freischalten:**
+  - **Beta-Zugang:** 60 Mana/Woche (automatisch freigeschaltet)
+  - **E-Mail verifiziert:** 60 Mana/Woche (verifiziere deine E-Mail)
+  - **Account verknüpft:** 60 Mana/Woche (verknüpfe deinen Discord/Social Account)
 - **Maximiere dein Mana:** Löse alle Drops schnell ein, um kein Mana zu verpassen.
-
-[![Discord beitreten](/img/mana.png)](https://discord.com/invite/UUXpmx24ua)
 
 ## Mana Drops: So funktioniert's
 
 ---
 
-- **Weniger als 1000 Mana nach 7 Tagen?** Du erhältst genug Mana, um auf 1000 zu kommen.
-- **1000 Mana und 7 Tage vergangen?** Kein neues Mana, bis du welches ausgibst.
+- **Wöchentliche Drops basierend auf freigeschalteten Perks:** Du erhältst Mana von jedem freigeschalteten Perk alle 7 Tage.
+- **Mehrere Perks stapeln sich:** Schalte alle drei Perks frei, um maximal 180 Mana pro Woche zu erhalten.
+- **Automatische Aufstockung:** Mana wird automatisch gutgeschrieben, wenn verfügbar.
 - **Mana vor Ablauf der Woche ausgegeben?** Warte auf den nächsten wöchentlichen Drop.
 
 ### Mana Masterpiece
