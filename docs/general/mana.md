@@ -8,17 +8,22 @@ import eatingMana from "/static/img/eating.png"
 
 ## Mana Drops in the Beta
 
-- **Weekly Drops:** Receive up to 1000 mana every 7 days.
+- **Weekly Drops:** Unlock up to 180 mana every 7 days by completing perks.
 - **Automatic notification:** An e-mail informs you about new drops.
+- **Unlock Perks:**
+  - **Beta Access:** 60 mana/week (automatically unlocked)
+  - **Email Verified:** 60 mana/week (verify your email)
+  - **Account Linked:** 60 mana/week (link your Discord/social account)
 - **Maximize your mana:** Redeem all drops quickly to avoid missing out on mana.
 
 [![Join Discord](/img/mana.png)](https://discord.com/invite/UUXpmx24ua)
 
 ## Mana Drops: This is how it works
 
-- **Less than 1000 mana after 7 days?** You get enough mana to get to 1000.
-- **1000 mana and 7 days have passed?** No new mana until you spend some.
-- **Spent all mana before the end of the week?** Wait for the next weekly drop.
+- **Weekly drops based on unlocked perks:** You receive mana from each unlocked perk every 7 days.
+- **Multiple perks stack:** Unlock all three perks to get the maximum 180 mana per week.
+- **Automatic top-up:** Mana drops automatically when available, no manual claim needed.
+- **Spent all mana before the end of the week?** Wait for the next weekly drop to receive more.
 
 ### Mana Masterpiece
 
