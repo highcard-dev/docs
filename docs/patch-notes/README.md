@@ -6,7 +6,7 @@ This directory contains all weekly patch notes for Druid.gg.
 
 1. **Copy the template:**
    ```bash
-   cp TEMPLATE.md 2026-MM-DD.md
+   cp ../../.templates/patch-notes-template.md docs/patch-notes/2026-MM-DD.md
    ```
    Replace `MM-DD` with the actual date (e.g., `2026-02-27.md`)
 

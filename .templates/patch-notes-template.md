@@ -1,7 +1,7 @@
 ---
 title: "Patch Notes - [Month Day, Year]"
 sidebar_label: "[Mon DD, YYYY]"
-sidebar_position: [100 minus weeks from Feb 20]
+sidebar_position: 99
 ---
 
 # Patch Notes - [Month Day, Year]
@@ -37,9 +37,9 @@ sidebar_position: [100 minus weeks from Feb 20]
 
 <!-- 
 INSTRUCTIONS FOR USING THIS TEMPLATE:
-1. Copy this file and rename it to YYYY-MM-DD.md (e.g., 2026-02-27.md)
+1. Copy this file to docs/patch-notes/YYYY-MM-DD.md (e.g., 2026-02-27.md)
 2. Update the title and date in the frontmatter
-3. Update sidebar_position: Use 100 for Feb 20, 99 for Feb 27, etc. (decreasing = newer appears first)
+3. Update sidebar_position: Use 100 for Feb 20, 99 for Feb 27, 98 for Mar 6, etc. (decreasing = newer appears first)
 4. Fill in each section with your updates
 5. Remove sections that don't apply
 6. Delete this comment block
