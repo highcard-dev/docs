@@ -16,8 +16,6 @@ import eatingMana from "/static/img/eating.png"
   - **Account Linked:** 60 mana/week (link your Discord/social account)
 - **Maximize your mana:** Redeem all drops quickly to avoid missing out on mana.
 
-[![Join Discord](/img/mana.png)](https://discord.com/invite/UUXpmx24ua)
-
 ## Mana Drops: This is how it works
 
 - **Weekly drops based on unlocked perks:** You receive mana from each unlocked perk every 7 days.
